@@ -10,9 +10,16 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+<meta name="theme-color" content="#3DC7BE">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -62,7 +69,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/tian.jpg?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/tian.jpg?v=5.1.3" color="#222">
+  <link rel="mask-icon" href="/images/tian.jpg?v=5.1.3" color="#3DC7BE">
 
 
 
@@ -100,7 +107,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -539,6 +546,8 @@
 
   <aside id="sidebar" class="sidebar">
     
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -621,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-对象基础"><span class="nav-number">1.</span> <span class="nav-text">1. 对象基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-点表示法"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. 点表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-子命名空间"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1. 子命名空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-括号表示法"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. 括号表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-设置对象成员"><span class="nav-number">1.3.</span> <span class="nav-text">1.3. 设置对象成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-this-的含义"><span class="nav-number">1.4.</span> <span class="nav-text">1.4. this 的含义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简单的面向对象-JavaScript"><span class="nav-number">2.</span> <span class="nav-text">2. 简单的面向对象 JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-构造函数和对象实例"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. 构造函数和对象实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-最终的构造函数例子"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 最终的构造函数例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-创建对象实例的其他方式"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. 创建对象实例的其他方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-Object-构造函数"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1. Object() 构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-使用-create-方法"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2. 使用 create() 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-instanceof-运算符"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. instanceof 运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-对象原型"><span class="nav-number">3.</span> <span class="nav-text">3. 对象原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-基于原型的语言"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. 基于原型的语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-理解原型对象"><span class="nav-number">3.2.</span> <span class="nav-text">3.2. 理解原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-prototype-属性：继承成员被定义的地方"><span class="nav-number">3.3.</span> <span class="nav-text">3.3. prototype 属性：继承成员被定义的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-通过原型看-create"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1. 通过原型看 create()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-constructor-属性"><span class="nav-number">3.4.</span> <span class="nav-text">3.4. constructor 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-修改原型"><span class="nav-number">3.5.</span> <span class="nav-text">3.5. 修改原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-继承"><span class="nav-number">4.</span> <span class="nav-text">4. 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-定义Teacher-的构造函数"><span class="nav-number">4.1.</span> <span class="nav-text">4.1. *定义Teacher()的构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-从无参构造函数继承"><span class="nav-number">4.1.1.</span> <span class="nav-text">4.1.1. 从无参构造函数继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-设置-Teacher-的原型和构造器引用"><span class="nav-number">4.2.</span> <span class="nav-text">4.2. 设置 Teacher() 的原型和构造器引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-向-Teacher-增加新的函数-greeting"><span class="nav-number">4.3.</span> <span class="nav-text">4.3. 向 Teacher() 增加新的函数 greeting()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-何时在-JavaScript-中使用继承？"><span class="nav-number">4.4.</span> <span class="nav-text">4.4.何时在 JavaScript 中使用继承？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-对象基础"><span class="nav-text">1. 对象基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-点表示法"><span class="nav-text">1.1. 点表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-子命名空间"><span class="nav-text">1.1.1. 子命名空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-括号表示法"><span class="nav-text">1.2. 括号表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-设置对象成员"><span class="nav-text">1.3. 设置对象成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-this-的含义"><span class="nav-text">1.4. this 的含义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简单的面向对象-JavaScript"><span class="nav-text">2. 简单的面向对象 JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-构造函数和对象实例"><span class="nav-text">2.1. 构造函数和对象实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-最终的构造函数例子"><span class="nav-text">2.2. 最终的构造函数例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-创建对象实例的其他方式"><span class="nav-text">2.3. 创建对象实例的其他方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-Object-构造函数"><span class="nav-text">2.3.1. Object() 构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-使用-create-方法"><span class="nav-text">2.3.2. 使用 create() 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-instanceof-运算符"><span class="nav-text">2.4. instanceof 运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-对象原型"><span class="nav-text">3. 对象原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-基于原型的语言"><span class="nav-text">3.1. 基于原型的语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-理解原型对象"><span class="nav-text">3.2. 理解原型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-prototype-属性：继承成员被定义的地方"><span class="nav-text">3.3. prototype 属性：继承成员被定义的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-通过原型看-create"><span class="nav-text">3.3.1. 通过原型看 create()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-constructor-属性"><span class="nav-text">3.4. constructor 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-修改原型"><span class="nav-text">3.5. 修改原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-继承"><span class="nav-text">4. 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-定义Teacher-的构造函数"><span class="nav-text">4.1. *定义Teacher()的构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-从无参构造函数继承"><span class="nav-text">4.1.1. 从无参构造函数继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-设置-Teacher-的原型和构造器引用"><span class="nav-text">4.2. 设置 Teacher() 的原型和构造器引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-向-Teacher-增加新的函数-greeting"><span class="nav-text">4.3. 向 Teacher() 增加新的函数 greeting()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-何时在-JavaScript-中使用继承？"><span class="nav-text">4.4.何时在 JavaScript 中使用继承？</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -706,9 +715,6 @@
 
 
 
-  
-  
-
 
 
 
@@ -734,12 +740,6 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   
