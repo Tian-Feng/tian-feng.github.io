@@ -87,12 +87,10 @@
 <meta property="og:site_name" content="田丰的笔记本子">
 <meta property="og:description" content="1. 对象基础一个对象由许多的成员组成，每一个成员都拥有一个名字，和一个值。每一个名字/值对被逗号分隔开，并且名字和值之间由冒号:分隔，语法规则如下所示： 12345var objectName = &amp;#123;    member1Name : member1Value,    member2Name : member2Value,    member3Name : member3Value&amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/11/29/JavaScript中的对象总结(MDN)/1511138033133.png">
-<meta property="og:updated_time" content="2017-11-29T08:36:49.000Z">
+<meta property="og:updated_time" content="2017-11-29T08:40:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的对象总结(MDN)">
 <meta name="twitter:description" content="1. 对象基础一个对象由许多的成员组成，每一个成员都拥有一个名字，和一个值。每一个名字/值对被逗号分隔开，并且名字和值之间由冒号:分隔，语法规则如下所示： 12345var objectName = &amp;#123;    member1Name : member1Value,    member2Name : member2Value,    member3Name : member3Value&amp;#">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/29/JavaScript中的对象总结(MDN)/1511138033133.png">
 
 
 
@@ -383,8 +381,6 @@
 <p>然后创建一个对象实例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Bob'</span>, <span class="string">'Smith'</span>, <span class="number">32</span>, <span class="string">'male'</span>, [<span class="string">'music'</span>, <span class="string">'skiing'</span>]);</span><br></pre></td></tr></table></figure>
 <p>定义在<code>persion1</code>的原型对象、即<code>Persion()</code>构造器中的成员——<code>name</code>、<code>age</code>、<code>gender</code>、<code>interests</code>、<code>bio</code>、<code>greeting</code>。同时也有一些其他成员——<code>watch</code>、<code>valueOf</code>等等——这些成员定义在<code>Person()</code>构造器的原型对象、即<code>Object</code>之上。</p>
-<p>下图展示了原型链的运作机制：</p>
-<p><img src="./1511138033133.png" alt="Alt text"></p>
 <p>调用<code>person1</code>的实际定义在<code>Object</code>上的方法时，比如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1.valueOf()</span><br></pre></td></tr></table></figure>
 <p>这个方法返回被调用对象的值。在这个例子中发生了如下过程：</p>
