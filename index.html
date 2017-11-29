@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/29/Oracle数据库学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田丰">
@@ -258,7 +258,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/29/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/11/29/Oracle数据库学习笔记/" itemprop="url">Oracle数据库</a></h1>
         
 
         <div class="post-meta">
@@ -270,7 +270,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T00:04:34+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T02:39:09+08:00">
                 2017-11-29
               </time>
             
@@ -310,16 +310,307 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+            <h2 id="基本查询语句"><a href="#基本查询语句" class="headerlink" title="基本查询语句"></a>基本查询语句</h2><h3 id="desc-语句"><a href="#desc-语句" class="headerlink" title="desc 语句"></a>desc 语句</h3><p>查看表的属性：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc emp;</span><br></pre></td></tr></table></figure>
+<h3 id="select-语句"><a href="#select-语句" class="headerlink" title="select 语句"></a>select 语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询整个表（ * 为通配符）</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tab;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>dual</code> 是只有一条字段的表，用来计算各式表达式</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询当前时间</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span> <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询emp表并显示名字与计算出的每人年薪</span></span><br><span class="line"><span class="comment">--给计算出的年薪起别名</span></span><br><span class="line"><span class="keyword">select</span> ename, sal*<span class="number">12</span> anuual_sal <span class="keyword">from</span> emp;</span><br><span class="line">或 </span><br><span class="line"><span class="keyword">select</span> ename, sal*<span class="number">12</span> <span class="string">"anuual sal"</span> <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--`||`相当于字符串拼接符</span></span><br><span class="line"><span class="keyword">select</span> ename||sal <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p>字符串用<code>&#39;&#39;</code>包住，如果字符串中有<code>&#39;</code>就用<code>\&#39;</code>表示。</p>
+<p><code>select</code>命令的<code>distinct</code>参数可以消除指定属性以及指定属性的组合（用逗号组合）的重复项。</p>
+<h3 id="过滤条件：where"><a href="#过滤条件：where" class="headerlink" title="过滤条件：where"></a>过滤条件：where</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--只显示emp表中部门编号为10的元组</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> deptno = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--只显示工资大于1500的元组</span></span><br><span class="line"><span class="keyword">select</span> ename, sal <span class="keyword">from</span> emp <span class="keyword">where</span> sal &gt; <span class="number">1500</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--显示部门编号不为10的元组</span></span><br><span class="line"><span class="keyword">select</span> ename, sal <span class="keyword">from</span> emp <span class="keyword">where</span> deptno &lt;&gt; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--显示工资在800到1500之间（包含800和1500）的元组</span></span><br><span class="line"><span class="keyword">select</span> ename, sal <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">between</span> <span class="number">800</span> <span class="keyword">and</span> <span class="number">1500</span>; 或者</span><br><span class="line"><span class="keyword">select</span> ename, sal <span class="keyword">from</span> emp <span class="keyword">where</span> sal &gt;=<span class="number">800</span> <span class="keyword">and</span> sal &lt;= <span class="number">1500</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--显示comm为空值（不为空值）的元组</span></span><br><span class="line"><span class="keyword">select</span> ename, sal , comm <span class="keyword">from</span> emp <span class="keyword">where</span> comm <span class="keyword">is</span> (<span class="keyword">not</span>) <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--显示工资为800或1500或2000的元组</span></span><br><span class="line"><span class="keyword">select</span> ename, sal, comm <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">in</span> (<span class="number">800</span>, <span class="number">1500</span>, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--显示工资不在800到1500之间的元组</span></span><br><span class="line"><span class="keyword">select</span> ename, sal <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">800</span>, <span class="number">1500</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--模糊查询</span></span><br><span class="line"><span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">'%ALL%'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--_代表一个占位符</span></span><br><span class="line"><span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">'_A%'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="排序关键字：order"><a href="#排序关键字：order" class="headerlink" title="排序关键字：order"></a>排序关键字：order</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--'by'后跟作为排序依据的属性</span></span><br><span class="line"><span class="comment">--desc(descend) 降序排列</span></span><br><span class="line"><span class="comment">--升序为`asc`，或者默认就为升序</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> dept <span class="keyword">order</span> <span class="keyword">by</span> deptno <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="查询函数"><a href="#查询函数" class="headerlink" title="查询函数"></a>查询函数</h2><h3 id="字符字符串函数"><a href="#字符字符串函数" class="headerlink" title="字符字符串函数"></a>字符字符串函数</h3><h4 id="大小写转换函数"><a href="#大小写转换函数" class="headerlink" title="大小写转换函数"></a>大小写转换函数</h4><p><code>lower()</code>, <code>upper()</code> 和 <code>initcap()</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--lower()函数将字符串内字符全部转换为小写</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">lower</span>(ename) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--找出名字第2个字母为a（不论大小写）的行</span></span><br><span class="line"><span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="keyword">lower</span>(ename) <span class="keyword">like</span> <span class="string">'_a%'</span>;</span><br></pre></td></tr></table></figure>
+<p>initcap()将每个单词首字母转换为大写</p>
+<h4 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--从名字的第2个字符截取，一共截取3个字符</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(ename, <span class="number">2</span>, <span class="number">3</span>) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<h4 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">concat('Good', 'String')</span><br><span class="line"><span class="comment">--返回值为GoodString</span></span><br></pre></td></tr></table></figure>
+<h4 id="length"><a href="#length" class="headerlink" title="length()"></a>length()</h4><p>返回字符串长度</p>
+<h4 id="instr"><a href="#instr" class="headerlink" title="instr()"></a>instr()</h4><p>返回某字符字符串在指定字符串中第一次出现的位置</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">instr('String', 'r')</span><br><span class="line"><span class="comment">--返回值为3</span></span><br></pre></td></tr></table></figure>
+<h4 id="trim"><a href="#trim" class="headerlink" title="trim()"></a>trim()</h4><p>剪去指定字符</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">trim('S' from 'SSMITH')</span><br><span class="line"><span class="comment">--返回值为MITH</span></span><br></pre></td></tr></table></figure>
+<h4 id="chr-和-ascii"><a href="#chr-和-ascii" class="headerlink" title="chr() 和 ascii()"></a>chr() 和 ascii()</h4><p>数字和对应的字符之间的转换（ASCII码）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">chr</span>(<span class="number">65</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--输出是'A'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">ascii</span>(<span class="string">'A'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--输出是65</span></span><br></pre></td></tr></table></figure>
+<h3 id="数字函数"><a href="#数字函数" class="headerlink" title="数字函数"></a>数字函数</h3><h4 id="round"><a href="#round" class="headerlink" title="round()"></a>round()</h4><p>对指定的值进行<strong>四舍五入</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">round</span>(<span class="number">23.652</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--输出为24</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">round</span>(<span class="number">23.652</span>, <span class="number">2</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--输出为23.65,第二个参数为精确到小数点后n位</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">round</span>(<span class="number">23.652</span>, <span class="number">-1</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--输出为20</span></span><br></pre></td></tr></table></figure>
+<h4 id="trunc"><a href="#trunc" class="headerlink" title="trunc()"></a>trunc()</h4><p>对指定的值进行<strong>取整</strong><br>直接截去，不进行四舍五入</p>
+<h4 id="mod"><a href="#mod" class="headerlink" title="mod()"></a>mod()</h4><p><strong>求余</strong>函数</p>
+<h4 id="to-char"><a href="#to-char" class="headerlink" title="to_char()"></a>to_char()</h4><p>按指定格式输出</p>
+<p><code>to_char(number, &#39;fmt&#39;)</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">9</td>
+<td>代表一个数字值</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td>代表一个数字，如果为空则显示一个0</td>
+</tr>
+<tr>
+<td style="text-align:center">\$</td>
+<td>在一个浮点值前面显示一个$符号</td>
+</tr>
+<tr>
+<td style="text-align:center">L</td>
+<td>使用浮点类型的本地货币符号</td>
+</tr>
+<tr>
+<td style="text-align:center">.</td>
+<td>显示一个小数点</td>
+</tr>
+<tr>
+<td style="text-align:center">,</td>
+<td>千位的指示符</td>
+</tr>
+</tbody>
+</table>
+<p>例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> to_char(sdal, <span class="string">'$99,999.9999'</span>) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="comment">--9代表一位，如果没有就不显示</span></span><br><span class="line"><span class="comment">--如果是0则代表一位且如果没有会显示0</span></span><br></pre></td></tr></table></figure>
+<h4 id="to-number-和-to-date"><a href="#to-number-和-to-date" class="headerlink" title="to_number() 和 to_date()"></a>to_number() 和 to_date()</h4><p>将字符串转换为数字或日期格式</p>
+<p><code>to_number(char[, &#39;fmt&#39;])</code></p>
+<p><code>to_date(char[, &#39;fmt&#39;])</code></p>
+<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询日期格式</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span> <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<h4 id="months-between"><a href="#months-between" class="headerlink" title="months_between()"></a>months_between()</h4><p>两个日期之间的月数</p>
+<h4 id="add-months"><a href="#add-months" class="headerlink" title="add_months()"></a>add_months()</h4><p>为一个日期增加月份</p>
+<h4 id="next-day"><a href="#next-day" class="headerlink" title="next_day()"></a>next_day()</h4><p>一个日期的下一定指定日子的日期</p>
+<h4 id="last-day"><a href="#last-day" class="headerlink" title="last_day()"></a>last_day()</h4><p>某个月份的最后一天</p>
+<h4 id="round-和-trunc"><a href="#round-和-trunc" class="headerlink" title="round() 和 trunc()"></a>round() 和 trunc()</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">round('25-JUL-95', 'MONTH')</span><br><span class="line"><span class="comment">--返回 01-AUG-95</span></span><br><span class="line">round('25-JUL-95', 'YEAR')</span><br><span class="line"><span class="comment">--返回 01-JAN-96</span></span><br></pre></td></tr></table></figure>
+<h4 id="日期格式"><a href="#日期格式" class="headerlink" title="日期格式"></a>日期格式</h4><table>
+<thead>
+<tr>
+<th>格式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yyyy</td>
+<td>四个数字表示的年份</td>
+</tr>
+<tr>
+<td>year</td>
+<td>年份的名字</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>两个数字表示的月份</td>
+</tr>
+<tr>
+<td>month</td>
+<td>月份的名字</td>
+</tr>
+<tr>
+<td>dy</td>
+<td>每星期某天的字母缩写</td>
+</tr>
+<tr>
+<td>day</td>
+<td>某天的完整名字</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nvl"><a href="#nvl" class="headerlink" title="nvl()"></a>nvl()</h3><p><code>nvl(expr1, expr2)</code><br>如果expr1为null，则返回expr2，否则返回expr1</p>
+<p><code>nvl(comm, 0)</code><br><code>nvl(hiredate, &#39;01-JAN-97&#39;)</code><br><code>nvl(job, &#39;No Job Yet&#39;)</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename, sal, comm, (sal*<span class="number">12</span>)+nvl(comm, <span class="number">0</span>) <span class="keyword">from</span> emp;</span><br><span class="line"><span class="comment">--解决了求总年薪时，comm为null时求出总年薪也为null的错误结果</span></span><br></pre></td></tr></table></figure>
+<h3 id="decode"><a href="#decode" class="headerlink" title="decode()"></a>decode()</h3><p>类似于<code>if-else</code>语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">decode(col/expression, search1, result1</span><br><span class="line">            [, search2, result2, ... ]</span><br><span class="line">            [, default])</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select job, sal,</span><br><span class="line">  2   decode(job, 'ANALYST', sal*1.1,</span><br><span class="line">  3             'CLERK', sal*1.15,</span><br><span class="line">  4             'MANAGER', sal*1.2,</span><br><span class="line">  5                         sal)</span><br><span class="line">  6  revised_salary</span><br><span class="line">  7  from emp;</span><br><span class="line"></span><br><span class="line">JOB              SAL REVISED_SALARY</span><br><span class="line"><span class="comment">--------- ---------- --------------</span></span><br><span class="line">CLERK            800            920</span><br><span class="line">SALESMAN        1600           1600</span><br><span class="line">SALESMAN        1250           1250</span><br><span class="line">MANAGER         2975           3570</span><br><span class="line">SALESMAN        1250           1250</span><br><span class="line">MANAGER         2850           3420</span><br><span class="line">MANAGER         2450           2940</span><br><span class="line">ANALYST         3000           3300</span><br><span class="line">PRESIDENT       5000           5000</span><br><span class="line">SALESMAN        1500           1500</span><br><span class="line">CLERK           1100           1265</span><br><span class="line"></span><br><span class="line">JOB              SAL REVISED_SALARY</span><br><span class="line"><span class="comment">--------- ---------- --------------</span></span><br><span class="line">CLERK            950         1092.5</span><br><span class="line">ANALYST         3000           3300</span><br><span class="line">CLERK           1300           1495</span><br><span class="line"></span><br><span class="line">已选择14行。</span><br></pre></td></tr></table></figure>
+<h2 id="从多个表中获取数据"><a href="#从多个表中获取数据" class="headerlink" title="从多个表中获取数据"></a>从多个表中获取数据</h2><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><em>例1</em>：<br>查询出雇员的名字，部门号，部门名称。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select e.ename, e.deptno,</span><br><span class="line">  2  d.dname</span><br><span class="line">  3  from emp e, dept d</span><br><span class="line">  4  where e.deptno = d.deptno;</span><br><span class="line"></span><br><span class="line">ENAME          DEPTNO DNAME</span><br><span class="line"><span class="comment">---------- ---------- --------------</span></span><br><span class="line">CLARK              10 ACCOUNTING</span><br><span class="line">KING               10 ACCOUNTING</span><br><span class="line">MILLER             10 ACCOUNTING</span><br><span class="line">JONES              20 RESEARCH</span><br><span class="line">FORD               20 RESEARCH</span><br><span class="line">ADAMS              20 RESEARCH</span><br><span class="line">SMITH              20 RESEARCH</span><br><span class="line">SCOTT              20 RESEARCH</span><br><span class="line">WARD               30 SALES</span><br><span class="line">TURNER             30 SALES</span><br><span class="line">ALLEN              30 SALES</span><br><span class="line"></span><br><span class="line">ENAME          DEPTNO DNAME</span><br><span class="line"><span class="comment">---------- ---------- --------------</span></span><br><span class="line">JAMES              30 SALES</span><br><span class="line">BLAKE              30 SALES</span><br><span class="line">MARTIN             30 SALES</span><br><span class="line"></span><br><span class="line">已选择14行。</span><br></pre></td></tr></table></figure>
+<p><em>例2</em>：<br>输出30号部门的所有工作的列表，部门号。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select distinct deptno, job from emp where deptno = 30;</span><br><span class="line"></span><br><span class="line">    DEPTNO JOB</span><br><span class="line"><span class="comment">---------- ---------</span></span><br><span class="line">        30 SALESMAN</span><br><span class="line">        30 CLERK</span><br><span class="line">        30 MANAGER</span><br></pre></td></tr></table></figure>
+<p><em>例3</em>：<br>查询出挣到佣金（comm）的雇员姓名，部门名称，和部门所处的位置。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select e.ename,</span><br><span class="line">  2  d.dname, d.loc</span><br><span class="line">  3  from emp e, dept d</span><br><span class="line">  4  where e.deptno = d.deptno</span><br><span class="line">  5  and e.comm is not null</span><br><span class="line">  6  and e.comm &gt; 0;</span><br><span class="line"></span><br><span class="line">ENAME      DNAME          LOC</span><br><span class="line"><span class="comment">---------- -------------- -------------</span></span><br><span class="line">ALLEN      SALES          CHICAGO</span><br><span class="line">MARTIN     SALES          CHICAGO</span><br><span class="line">WARD       SALES          CHICAGO</span><br></pre></td></tr></table></figure>
+<p><em>例4</em>：<br>查询出名字里面有一个“A”的所有雇员姓名和所在部门的名称。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select e.ename, d.dname</span><br><span class="line">  2  from emp e, dept d</span><br><span class="line">  3  where ename like '%A%'</span><br><span class="line">  4  and e.deptno = d.deptno;</span><br><span class="line"></span><br><span class="line">ENAME      DNAME</span><br><span class="line"><span class="comment">---------- --------------</span></span><br><span class="line">ALLEN      SALES</span><br><span class="line">WARD       SALES</span><br><span class="line">MARTIN     SALES</span><br><span class="line">BLAKE      SALES</span><br><span class="line">CLARK      ACCOUNTING</span><br><span class="line">ADAMS      RESEARCH</span><br><span class="line">JAMES      SALES</span><br><span class="line"></span><br><span class="line">已选择7行。</span><br></pre></td></tr></table></figure>
+<p><em>例5</em>：<br>查询出工作在DALLAS的所有员工的姓名、工作、部门号、部门名称。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select e.ename, e.job, e.deptno,</span><br><span class="line">  2  d.dname</span><br><span class="line">  3  from emp e, dept d</span><br><span class="line">  4  where e.deptno = d.deptno</span><br><span class="line">  5  and d.loc = 'DALLAS';</span><br><span class="line"></span><br><span class="line">ENAME      JOB           DEPTNO DNAME</span><br><span class="line"><span class="comment">---------- --------- ---------- --------------</span></span><br><span class="line">JONES      MANAGER           20 RESEARCH</span><br><span class="line">FORD       ANALYST           20 RESEARCH</span><br><span class="line">ADAMS      CLERK             20 RESEARCH</span><br><span class="line">SMITH      CLERK             20 RESEARCH</span><br><span class="line">SCOTT      ANALYST           20 RESEARCH</span><br></pre></td></tr></table></figure>
+<p><em>例6</em>：<br>查出每个雇员的编号、姓名、其管理者的编号、姓名。各个列分别命名为：Emp#, EmpName,EmpM#,EmpName。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select worker.empno "Emp#", worker.ename "EmpName",</span><br><span class="line">  2  manager.empno "EmpM#", manager.ename "EmpName"</span><br><span class="line">  3  from emp worker, emp manager</span><br><span class="line">  4  where worker.mgr = manager.empno;</span><br><span class="line"></span><br><span class="line">      Emp# EmpName         EmpM# EmpName</span><br><span class="line"><span class="comment">---------- ---------- ---------- ----------</span></span><br><span class="line">      7902 FORD             7566 JONES</span><br><span class="line">      7788 SCOTT            7566 JONES</span><br><span class="line">      7844 TURNER           7698 BLAKE</span><br><span class="line">      7499 ALLEN            7698 BLAKE</span><br><span class="line">      7521 WARD             7698 BLAKE</span><br><span class="line">      7900 JAMES            7698 BLAKE</span><br><span class="line">      7654 MARTIN           7698 BLAKE</span><br><span class="line">      7934 MILLER           7782 CLARK</span><br><span class="line">      7876 ADAMS            7788 SCOTT</span><br><span class="line">      7698 BLAKE            7839 KING</span><br><span class="line">      7566 JONES            7839 KING</span><br><span class="line"></span><br><span class="line">      Emp# EmpName         EmpM# EmpName</span><br><span class="line"><span class="comment">---------- ---------- ---------- ----------</span></span><br><span class="line">      7782 CLARK            7839 KING</span><br><span class="line">      7369 SMITH            7902 FORD</span><br><span class="line"></span><br><span class="line">已选择13行。</span><br></pre></td></tr></table></figure>
+<p><em>例7</em>：<br>修改第6题的查询，使得没有管理者的员工的信息也可以显示出来。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select worker.empno "Emp#", worker.ename "EmpName",</span><br><span class="line">  2  manager.empno "EmpM#", manager.ename "EmpName"</span><br><span class="line">  3  from emp worker, emp manager</span><br><span class="line">  4  where worker.mgr = manager.empno(+);</span><br><span class="line"></span><br><span class="line">      Emp# EmpName         EmpM# EmpName</span><br><span class="line"><span class="comment">---------- ---------- ---------- ----------</span></span><br><span class="line">      7902 FORD             7566 JONES</span><br><span class="line">      7788 SCOTT            7566 JONES</span><br><span class="line">      7900 JAMES            7698 BLAKE</span><br><span class="line">      7844 TURNER           7698 BLAKE</span><br><span class="line">      7654 MARTIN           7698 BLAKE</span><br><span class="line">      7521 WARD             7698 BLAKE</span><br><span class="line">      7499 ALLEN            7698 BLAKE</span><br><span class="line">      7934 MILLER           7782 CLARK</span><br><span class="line">      7876 ADAMS            7788 SCOTT</span><br><span class="line">      7782 CLARK            7839 KING</span><br><span class="line">      7698 BLAKE            7839 KING</span><br><span class="line"></span><br><span class="line">      Emp# EmpName         EmpM# EmpName</span><br><span class="line"><span class="comment">---------- ---------- ---------- ----------</span></span><br><span class="line">      7566 JONES            7839 KING</span><br><span class="line">      7369 SMITH            7902 FORD</span><br><span class="line">      7839 KING</span><br><span class="line"></span><br><span class="line">已选择14行。</span><br></pre></td></tr></table></figure>
+<p><em>例8</em>：<br>查询出不是经理的人（没有员工）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--使用了子查询</span></span><br><span class="line"></span><br><span class="line">SQL&gt; select ename</span><br><span class="line">  2  from emp</span><br><span class="line">  3  where empno not in (<span class="keyword">select</span> mgr <span class="keyword">from</span> emp <span class="keyword">where</span> mgr <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">ENAME</span><br><span class="line"><span class="comment">----------</span></span><br><span class="line">SMITH</span><br><span class="line">ALLEN</span><br><span class="line">WARD</span><br><span class="line">MARTIN</span><br><span class="line">TURNER</span><br><span class="line">ADAMS</span><br><span class="line">JAMES</span><br><span class="line">MILLER</span><br><span class="line"></span><br><span class="line">已选择8行。</span><br></pre></td></tr></table></figure>
+<h2 id="用聚合函数对数据聚集"><a href="#用聚合函数对数据聚集" class="headerlink" title="用聚合函数对数据聚集"></a>用聚合函数对数据聚集</h2><h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p><code>avg()</code>：求列的平均值<br><code>sum()</code>：求列的和<br><code>max()</code>：求列的最大值<br><code>min()</code>：求列的最小值<br><code>COUNT(*)</code>：返回查询出的总行数<br><code>count(expr)</code>：返回expr值非空的行的数</p>
+<h4 id="NVL"><a href="#NVL" class="headerlink" title="NVL()"></a>NVL()</h4><blockquote>
+<p>注意：聚合函数会忽略所有空行</p>
+</blockquote>
+<p>例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select avg(comm)</span><br><span class="line">  2  from emp;</span><br><span class="line"></span><br><span class="line"> AVG(COMM)</span><br><span class="line"><span class="comment">----------</span></span><br><span class="line">       550</span><br></pre></td></tr></table></figure>
+<p>NVL函数使得分组函数可以处理空值：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select avg(nvl(comm,0))</span><br><span class="line">  2  from emp;</span><br><span class="line"></span><br><span class="line">AVG(NVL(COMM,0))</span><br><span class="line"><span class="comment">----------------</span></span><br><span class="line">      157.142857</span><br></pre></td></tr></table></figure>
+<h3 id="创建分组数据：group-by"><a href="#创建分组数据：group-by" class="headerlink" title="创建分组数据：group by"></a>创建分组数据：group by</h3><p>将表中的数据行用group by语句分为几个组。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select deptno, avg(sal)</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by deptno;</span><br><span class="line"></span><br><span class="line">    DEPTNO   AVG(SAL)</span><br><span class="line"><span class="comment">---------- ----------</span></span><br><span class="line">        30 1566.66667</span><br><span class="line">        20       2175</span><br><span class="line">        10 2916.66667</span><br></pre></td></tr></table></figure>
+<p>可以在多个列上使用<code>group by</code>:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select deptno, job, sum(sal)</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by deptno, job;</span><br><span class="line"></span><br><span class="line">    DEPTNO JOB         SUM(SAL)</span><br><span class="line"><span class="comment">---------- --------- ----------</span></span><br><span class="line">        20 CLERK           1900</span><br><span class="line">        30 SALESMAN        5600</span><br><span class="line">        20 MANAGER         2975</span><br><span class="line">        30 CLERK            950</span><br><span class="line">        10 PRESIDENT       5000</span><br><span class="line">        30 MANAGER         2850</span><br><span class="line">        10 CLERK           1300</span><br><span class="line">        10 MANAGER         2450</span><br><span class="line">        20 ANALYST         6000</span><br><span class="line"></span><br><span class="line">已选择9行。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在<code>select</code>语句中，任何不在聚组函数中出现的列，必须在<code>group by</code>子句中。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select deptno, count(ename)</span><br><span class="line">  2  from emp;</span><br><span class="line"><span class="keyword">select</span> deptno, <span class="keyword">count</span>(ename)</span><br><span class="line">       *</span><br><span class="line">第 <span class="number">1</span> 行出现错误:</span><br><span class="line">ORA<span class="number">-00937</span>: 不是单组分组函数</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>不能在<code>where</code>子句中对列做出限定，使用<code>having</code>子句来限定分组。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select deptno, avg(sal)</span><br><span class="line">  2  from emp</span><br><span class="line">  3  where avg(sal) &gt; 2000</span><br><span class="line">  4  group by deptno;</span><br><span class="line">where avg(sal) &gt; 2000</span><br><span class="line">      *</span><br><span class="line">第 3 行出现错误:</span><br><span class="line">ORA-00934: 此处不允许使用分组函数</span><br></pre></td></tr></table></figure>
+<h3 id="排除分组结果：having"><a href="#排除分组结果：having" class="headerlink" title="排除分组结果：having"></a>排除分组结果：having</h3><p>使用了分组函数后，符合<code>having</code>子句条件的组将被显示出来。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select deptno, max(sal)</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by deptno</span><br><span class="line">  4  having max(sal) &gt; 2900;</span><br><span class="line"></span><br><span class="line">    DEPTNO   MAX(SAL)</span><br><span class="line"><span class="comment">---------- ----------</span></span><br><span class="line">        20       3000</span><br><span class="line">        10       5000</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select job, sum(sal) payroll</span><br><span class="line">  2  from emp</span><br><span class="line">  3  where job not like 'SALES%'</span><br><span class="line">  4  group by job</span><br><span class="line">  5  having sum(sal) &gt; 5000</span><br><span class="line">  6  order by sum(sal);</span><br><span class="line"></span><br><span class="line">JOB          PAYROLL</span><br><span class="line"><span class="comment">--------- ----------</span></span><br><span class="line">ANALYST         6000</span><br><span class="line">MANAGER         8275</span><br></pre></td></tr></table></figure>
+<h3 id="聚合函数的嵌套使用"><a href="#聚合函数的嵌套使用" class="headerlink" title="聚合函数的嵌套使用"></a>聚合函数的嵌套使用</h3><p>显示最大的平均工资：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select max(avg(sal))</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by deptno;</span><br><span class="line"></span><br><span class="line">MAX(AVG(SAL))</span><br><span class="line"><span class="comment">-------------</span></span><br><span class="line">   2916.66667</span><br></pre></td></tr></table></figure>
+<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><p><em>例1</em>：</p>
+<p>查出所有员工的最高、最低、平均的工资,以及工资的总和，列名分别是maxSal, minSal, avgSal, sumSal。这些数值都用四舍五入进行处理。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select round(max(sal)) "maxSal", round(min(sal)) "minSal", round(avg(sal)) "avgSal", round(sum(sal)) "sumSal"</span><br><span class="line">  2  from emp;</span><br><span class="line"></span><br><span class="line">    masSal     minSal     avgSal     sumSal</span><br><span class="line"><span class="comment">---------- ---------- ---------- ----------</span></span><br><span class="line">      5000        800       2073      29025</span><br></pre></td></tr></table></figure>
+<p><em>例2</em>：</p>
+<p><strong>按照工作类型分类</strong>，查出每种工作的名称和其员工的最高、最低、平均的工资、工资的总和，这些数值都用四舍五入进行处理。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select job, round(max(sal)) "masSal", round(min(sal)) "minSal", round(avg(sal)) "avgSal", round(sum(sal)) "sumSal"</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by job;</span><br><span class="line"></span><br><span class="line">JOB           masSal     minSal     avgSal     sumSal</span><br><span class="line"><span class="comment">--------- ---------- ---------- ---------- ----------</span></span><br><span class="line">CLERK           1300        800       1038       4150</span><br><span class="line">SALESMAN        1600       1250       1400       5600</span><br><span class="line">PRESIDENT       5000       5000       5000       5000</span><br><span class="line">MANAGER         2975       2450       2758       8275</span><br><span class="line">ANALYST         3000       3000       3000       6000</span><br></pre></td></tr></table></figure>
+<p><em>例3</em>：</p>
+<p>查出每种工作的名称和从事该工作的人数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select job, count(*) "人数"</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by job;</span><br><span class="line"></span><br><span class="line">JOB             人数</span><br><span class="line"><span class="comment">--------- ----------</span></span><br><span class="line">CLERK              4</span><br><span class="line">SALESMAN           4</span><br><span class="line">PRESIDENT          1</span><br><span class="line">MANAGER            3</span><br><span class="line">ANALYST            2</span><br></pre></td></tr></table></figure>
+<p><em>例4</em>：</p>
+<p>按照工作分类，查出最高工资和最低工资的差额,该列命名为difference。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select job, max(sal)-min(sal) difference</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by job;</span><br><span class="line"></span><br><span class="line">JOB       DIFFERENCE</span><br><span class="line"><span class="comment">--------- ----------</span></span><br><span class="line">CLERK            500</span><br><span class="line">SALESMAN         350</span><br><span class="line">PRESIDENT          0</span><br><span class="line">MANAGER          525</span><br><span class="line">ANALYST            0</span><br></pre></td></tr></table></figure>
+<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><blockquote>
+<p>当一个查询基于未知值时，子查询是非常有用的。</p>
+</blockquote>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li>子查询要包括在括号里面。</li>
+<li>子查询要放在比较操作符的右边。</li>
+<li>子查询中不要包含<code>order by</code>子句。</li>
+<li>对于单行的子查询使用单行的比较操作符。</li>
+<li>对于多行的子查询要使用多行的比较操作符。</li>
+</ul>
+<h3 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h3><h4 id="单行比较操作符"><a href="#单行比较操作符" class="headerlink" title="单行比较操作符"></a>单行比较操作符</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">操作符</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">=</td>
+<td style="text-align:left">等于</td>
+</tr>
+<tr>
+<td style="text-align:center">></td>
+<td style="text-align:left">大于</td>
+</tr>
+<tr>
+<td style="text-align:center">>=</td>
+<td style="text-align:left">大于或等于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:left">小于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:left">小于或等于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;&gt;</td>
+<td style="text-align:left">不等于</td>
+</tr>
+</tbody>
+</table>
+<h4 id="多行比较操作符"><a href="#多行比较操作符" class="headerlink" title="多行比较操作符"></a>多行比较操作符</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">操作符</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">in</td>
+<td style="text-align:left">等于列表中的某一个值</td>
+</tr>
+<tr>
+<td style="text-align:center">any</td>
+<td style="text-align:left">与列表中的任意值比较</td>
+</tr>
+<tr>
+<td style="text-align:center">all</td>
+<td style="text-align:left">与列表中的所有值相比较</td>
+</tr>
+</tbody>
+</table>
+<h3 id="单行子查询"><a href="#单行子查询" class="headerlink" title="单行子查询"></a>单行子查询</h3><p><em>例</em>：查询薪水大于7566号员工薪水的员工名字</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select ename</span><br><span class="line">  2  from emp</span><br><span class="line">  3  where sal &gt;</span><br><span class="line">  4  (<span class="keyword">select</span> sal</span><br><span class="line">  <span class="number">5</span>  <span class="keyword">from</span> emp</span><br><span class="line">  <span class="number">6</span>  <span class="keyword">where</span> empno = <span class="number">7566</span>);</span><br><span class="line"></span><br><span class="line">ENAME</span><br><span class="line"><span class="comment">----------</span></span><br><span class="line">SCOTT</span><br><span class="line">KING</span><br><span class="line">FORD</span><br></pre></td></tr></table></figure>
+<h4 id="在子查询中使用having语句"><a href="#在子查询中使用having语句" class="headerlink" title="在子查询中使用having语句"></a>在子查询中使用having语句</h4><p><em>例</em>：查询部门最小工资大于20号部门最小工资的部门和最小工资</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select deptno, min(sal)</span><br><span class="line">  2  from emp</span><br><span class="line">  3  group by deptno</span><br><span class="line">  4  having min(sal) &gt;</span><br><span class="line">  5  (<span class="keyword">select</span> <span class="keyword">min</span>(sal)</span><br><span class="line">  <span class="number">6</span>  <span class="keyword">from</span> emp</span><br><span class="line">  <span class="number">7</span>  <span class="keyword">where</span> deptno = <span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">    DEPTNO   MIN(SAL)</span><br><span class="line"><span class="comment">---------- ----------</span></span><br><span class="line">        30        950</span><br><span class="line">        10       1300</span><br></pre></td></tr></table></figure>
+<h3 id="多行子查询"><a href="#多行子查询" class="headerlink" title="多行子查询"></a>多行子查询</h3><p><em>例</em>：查询出薪水小于clerk职位上任意一员工薪水的员工</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select empno, ename, job</span><br><span class="line">  2  from emp</span><br><span class="line">  3  where sal &lt; any</span><br><span class="line">  4  (<span class="keyword">select</span> sal</span><br><span class="line">  <span class="number">5</span>  <span class="keyword">from</span> emp</span><br><span class="line">  <span class="number">6</span>  <span class="keyword">where</span> job = <span class="string">'CLERK'</span>)</span><br><span class="line">  <span class="number">7</span>  <span class="keyword">and</span> job &lt;&gt; <span class="string">'CLERK'</span>;</span><br><span class="line"></span><br><span class="line">     EMPNO ENAME      JOB</span><br><span class="line"><span class="comment">---------- ---------- ---------</span></span><br><span class="line">      7521 WARD       SALESMAN</span><br><span class="line">      7654 MARTIN     SALESMAN</span><br></pre></td></tr></table></figure>
+<p><em>例</em>：查询出薪水大于所有部门平均薪水的员工</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; select empno, ename, job</span><br><span class="line">  2  from emp</span><br><span class="line">  3  where sal &gt; all</span><br><span class="line">  4  (<span class="keyword">select</span> <span class="keyword">avg</span>(sal)</span><br><span class="line">  <span class="number">5</span>  <span class="keyword">from</span> emp</span><br><span class="line">  <span class="number">6</span>  <span class="keyword">group</span> <span class="keyword">by</span> deptno);</span><br><span class="line"></span><br><span class="line">     EMPNO ENAME      JOB</span><br><span class="line"><span class="comment">---------- ---------- ---------</span></span><br><span class="line">      7566 JONES      MANAGER</span><br><span class="line">      7788 SCOTT      ANALYST</span><br><span class="line">      7902 FORD       ANALYST</span><br><span class="line">      7839 KING       PRESIDENT</span><br></pre></td></tr></table></figure>
+<h2 id="DML语句"><a href="#DML语句" class="headerlink" title="DML语句"></a>DML语句</h2><h3 id="向表中增加新行-insert-语句"><a href="#向表中增加新行-insert-语句" class="headerlink" title="向表中增加新行:insert 语句"></a>向表中增加新行:insert 语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> [(<span class="keyword">column</span> [, column...])]</span><br><span class="line"><span class="keyword">values</span> (<span class="keyword">value</span> [, value...]);</span><br><span class="line"><span class="comment">--只能一次插入一行数据</span></span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; insert into dept (deptno, dname, loc)</span><br><span class="line">  2  values	(50, 'DEVELOPMENT', 'DETROIT');</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>日期值和字符值要用<strong>单引号</strong>括起来</p>
+</blockquote>
+<h4 id="插入带有空值的行"><a href="#插入带有空值的行" class="headerlink" title="插入带有空值的行"></a>插入带有空值的行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; insert into dept</span><br><span class="line">  2  values	(70, 'FINANCE', NULL);</span><br><span class="line"><span class="comment">--指定null关键字</span></span><br></pre></td></tr></table></figure>
+<h4 id="插入系统日期"><a href="#插入系统日期" class="headerlink" title="插入系统日期"></a>插入系统日期</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; insert into emp (empno, ename, job,</span><br><span class="line">  2			mgr, hiredate, sal, comm,</span><br><span class="line">  3			deptno)</span><br><span class="line">  4  values	(7196, 'GREEN', 'SALESMAN',</span><br><span class="line">  5			7782, sysdate, 2000, null,</span><br><span class="line">  6			10);</span><br><span class="line"><span class="comment">--sysdate</span></span><br></pre></td></tr></table></figure>
+<h4 id="插入特殊的日期值"><a href="#插入特殊的日期值" class="headerlink" title="插入特殊的日期值"></a>插入特殊的日期值</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; insert into emp</span><br><span class="line">  2  values  (2296,'AROMANO','SALESMAN',7782,</span><br><span class="line">  3		    to_date('FEB 3, 1997', 'MON DD, YYYY'),</span><br><span class="line">  4		    1300, null, 10);</span><br></pre></td></tr></table></figure>
+<h4 id="从另一个表中拷贝行"><a href="#从另一个表中拷贝行" class="headerlink" title="从另一个表中拷贝行"></a>从另一个表中拷贝行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建带有子查询的 insert 语句</span></span><br><span class="line">SQL&gt; insert into managers(id, name, salary, hiredate)</span><br><span class="line">  2  <span class="keyword">select</span> empno, ename, sal, hiredate</span><br><span class="line">  <span class="number">3</span>  <span class="keyword">from</span> emp</span><br><span class="line">  <span class="number">4</span>  <span class="keyword">where</span> job = <span class="string">'MANAGER'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--不要使用 values 子句.</span></span><br><span class="line"><span class="comment">--子查询中的列要与 insert 子句中的列相匹配.</span></span><br></pre></td></tr></table></figure>
+<h3 id="改变一个表中的行-update-语句"><a href="#改变一个表中的行-update-语句" class="headerlink" title="改变一个表中的行:update 语句"></a>改变一个表中的行:update 语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">table</span></span><br><span class="line"><span class="keyword">set</span>	<span class="keyword">column</span> = <span class="keyword">value</span> [, <span class="keyword">column</span> = <span class="keyword">value</span>, ...]</span><br><span class="line">[<span class="keyword">where</span> condition];</span><br><span class="line"></span><br><span class="line"><span class="comment">--如果需要，可以一次更改多行</span></span><br></pre></td></tr></table></figure>
+<p>用 <code>where</code> 子句指定要修改的行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; update emp</span><br><span class="line">  2  <span class="keyword">set</span> deptno = <span class="number">20</span></span><br><span class="line">  <span class="number">3</span>  <span class="keyword">where</span> empno = <span class="number">7782</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="用多列子查询进行修改"><a href="#用多列子查询进行修改" class="headerlink" title="用多列子查询进行修改"></a>用多列子查询进行修改</h4><p>例：更改第 7698 号雇员的工作和部门，以与第 7499 号雇员进行匹配:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; update emp</span><br><span class="line">  2  <span class="keyword">set</span> (job, deptno) = </span><br><span class="line">  <span class="number">3</span>	        (<span class="keyword">SELECT</span> job, deptno</span><br><span class="line">  <span class="number">4</span>         <span class="keyword">from</span> emp</span><br><span class="line">  <span class="number">5</span>         <span class="keyword">where</span> empno = <span class="number">7499</span>)</span><br><span class="line">  <span class="number">6</span>  wehre empno = <span class="number">7698</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="对基于另一个表的行进行更改"><a href="#对基于另一个表的行进行更改" class="headerlink" title="对基于另一个表的行进行更改"></a>对基于另一个表的行进行更改</h4><p>例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt;update employee</span><br><span class="line">  2	<span class="keyword">set</span> deptno = (<span class="keyword">select</span> deptno</span><br><span class="line">  <span class="number">3</span>			<span class="keyword">from</span> emp 	</span><br><span class="line">  <span class="number">4</span>			<span class="keyword">where</span> empno = <span class="number">7788</span>)</span><br><span class="line">  <span class="number">5</span>	<span class="keyword">where</span> job = (<span class="keyword">select</span> job</span><br><span class="line">  <span class="number">6</span>		    <span class="keyword">from</span> emp</span><br><span class="line">  <span class="number">7</span>			<span class="keyword">where</span> empno = <span class="number">7788</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="从表中删除行-delete-语句"><a href="#从表中删除行-delete-语句" class="headerlink" title="从表中删除行:delete 语句"></a>从表中删除行:delete 语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> [<span class="keyword">from</span>] <span class="keyword">table</span></span><br><span class="line">[<span class="keyword">where</span> condition];</span><br></pre></td></tr></table></figure>
+<p>用 <code>where</code> 子句以指定哪些行应当被删去:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; delete from department</span><br><span class="line">  2  where dname = 'DEVELOPMENT';</span><br></pre></td></tr></table></figure>
+<p>参照另一个表来删除行:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; delete from employee</span><br><span class="line">  2  where deptno = </span><br><span class="line">  3	        (selete deptno</span><br><span class="line">  4         from dept</span><br><span class="line">  5  		where dname ='SALES');</span><br></pre></td></tr></table></figure>
+<h2 id="数据库事务"><a href="#数据库事务" class="headerlink" title="数据库事务"></a>数据库事务</h2><h3 id="commit-和-rollback"><a href="#commit-和-rollback" class="headerlink" title="commit 和 rollback"></a>commit 和 rollback</h3><p><code>commit</code> 或 <code>rollback</code> 之前的数据状态：</p>
+<ul>
+<li>之前的状态可以被恢复。</li>
+<li>当前的用户可以用 <code>select</code> 语句来查看 DML 操作后的结果。</li>
+<li>其它用户看不到当前用户使用 DML 语句进行数据操纵的结果。</li>
+<li>产生改变的数据被加锁，其它用户不能改变这些行。</li>
+</ul>
+<p><code>commit</code> 后的数据状态:</p>
+<ul>
+<li>数据的改变将被永久的反应到数据库中去。</li>
+<li>事务前面的数据状态将被永久地丢弃。</li>
+<li>所有的用户可以查看结果。</li>
+<li>加在产生改变的行上的数据被解锁，这些行对于其他用户是可用的。</li>
+<li>所有的保存点被释放</li>
+</ul>
+<p><code>rollback</code> 后的数据状态</p>
+<ul>
+<li>数据的改变失效。</li>
+<li>事务之前的数据状态改变。</li>
+<li>在改变行的上的锁被释放。</li>
+</ul>
+<h3 id="savepoint"><a href="#savepoint" class="headerlink" title="savepoint"></a>savepoint</h3><p>使用 <code>savepoint</code> 语句在当前事务中产生一个标记，再用 <code>rollback to savepoint</code> 语句回滚到那个标记。</p>
+<p>例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; update...</span><br><span class="line">SQL&gt; savepoint update_done;</span><br><span class="line"></span><br><span class="line">SQL&gt; insert...</span><br><span class="line">SQL&gt; rollback to update_done;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -408,6 +699,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
@@ -508,6 +808,9 @@
 
 
 
+  
+  
+
 
 
 
@@ -533,6 +836,12 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   
