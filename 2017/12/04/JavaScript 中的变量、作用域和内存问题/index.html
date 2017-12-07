@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="4.1 基本类型和引用类型变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 基本类型值：Undefined、Null、Boolean、Number和 String。这5种基本数据类型是按值访问的。 引用类型值是保存在内存中的对象。对象是按">
+<meta name="description" content="基本类型和引用类型变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 基本类型值：Undefined、Null、Boolean、Number和 String。这5种基本数据类型是按值访问的。 引用类型值是保存在内存中的对象。对象是按引用访问">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript学习笔记：变量、作用域和内存问题">
+<meta property="og:title" content="JavaScript 中的变量、作用域和内存问题">
 <meta property="og:url" content="http://yoursite.com/2017/12/04/JavaScript 中的变量、作用域和内存问题/index.html">
 <meta property="og:site_name" content="田丰的笔记本子">
-<meta property="og:description" content="4.1 基本类型和引用类型变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 基本类型值：Undefined、Null、Boolean、Number和 String。这5种基本数据类型是按值访问的。 引用类型值是保存在内存中的对象。对象是按引用访问的。 4.1.1 动态的属性可以为引用类型的值[添加/改变/删除]属性和">
+<meta property="og:description" content="基本类型和引用类型变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 基本类型值：Undefined、Null、Boolean、Number和 String。这5种基本数据类型是按值访问的。 引用类型值是保存在内存中的对象。对象是按引用访问的。 动态的属性可以为引用类型的值[添加/改变/删除]属性和方法。但是不能给基本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-06T23:43:24.000Z">
+<meta property="og:updated_time" content="2017-12-07T00:02:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript学习笔记：变量、作用域和内存问题">
-<meta name="twitter:description" content="4.1 基本类型和引用类型变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 基本类型值：Undefined、Null、Boolean、Number和 String。这5种基本数据类型是按值访问的。 引用类型值是保存在内存中的对象。对象是按引用访问的。 4.1.1 动态的属性可以为引用类型的值[添加/改变/删除]属性和">
+<meta name="twitter:title" content="JavaScript 中的变量、作用域和内存问题">
+<meta name="twitter:description" content="基本类型和引用类型变量可能包含两种不同数据类型的值：基本类型值和引用类型值。基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 基本类型值：Undefined、Null、Boolean、Number和 String。这5种基本数据类型是按值访问的。 引用类型值是保存在内存中的对象。对象是按引用访问的。 动态的属性可以为引用类型的值[添加/改变/删除]属性和方法。但是不能给基本">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>JavaScript学习笔记：变量、作用域和内存问题 | 田丰的笔记本子</title>
+  <title>JavaScript 中的变量、作用域和内存问题 | 田丰的笔记本子</title>
   
 
 
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript学习笔记：变量、作用域和内存问题</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript 中的变量、作用域和内存问题</h1>
         
 
         <div class="post-meta">
@@ -317,13 +317,13 @@
       
 
       
-        <h2 id="4-1-基本类型和引用类型"><a href="#4-1-基本类型和引用类型" class="headerlink" title="4.1 基本类型和引用类型"></a>4.1 基本类型和引用类型</h2><p>变量可能包含两种不同数据类型的值：基本类型值和引用类型值。<strong>基本类型值</strong>指的是简单的数据段，而<strong>引用类型值</strong>指那些可能由多个值构成的对象。</p>
+        <h2 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h2><p>变量可能包含两种不同数据类型的值：基本类型值和引用类型值。<strong>基本类型值</strong>指的是简单的数据段，而<strong>引用类型值</strong>指那些可能由多个值构成的对象。</p>
 <p>基本类型值：<code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code>和 <code>String</code>。这5种基本数据类型是按值访问的。</p>
 <p>引用类型值是保存在内存中的<em>对象</em>。对象是按引用访问的。</p>
-<h3 id="4-1-1-动态的属性"><a href="#4-1-1-动态的属性" class="headerlink" title="4.1.1 动态的属性"></a>4.1.1 动态的属性</h3><p>可以<strong>为引用类型的值</strong>[添加/改变/删除]属性和方法。但是<strong>不能给基本类型的值</strong>添加属性，尽管这样做不会导致任何错误。</p>
-<h3 id="4-1-2-复制变量值"><a href="#4-1-2-复制变量值" class="headerlink" title="4.1.2 复制变量值"></a>4.1.2 复制变量值</h3><p>当从一个变量向另一个变量复制<strong>基本类型的值</strong>时，会在变量对象上创建一个新值，然后把该值复制到为新变量分配的位置上。</p>
+<h3 id="动态的属性"><a href="#动态的属性" class="headerlink" title="动态的属性"></a>动态的属性</h3><p>可以<strong>为引用类型的值</strong>[添加/改变/删除]属性和方法。但是<strong>不能给基本类型的值</strong>添加属性，尽管这样做不会导致任何错误。</p>
+<h3 id="复制变量值"><a href="#复制变量值" class="headerlink" title="复制变量值"></a>复制变量值</h3><p>当从一个变量向另一个变量复制<strong>基本类型的值</strong>时，会在变量对象上创建一个新值，然后把该值复制到为新变量分配的位置上。</p>
 <p>当从一个变量向另一个变量复制<strong>引用变量的值</strong>时，同样也会将存储在变量对象中的值复制一份放到为新变量分配的空间中。<strong>不同的是</strong>，这个值的副本实际上是一个<strong>指针</strong>，而这个指针指向存储在堆中的一个对象。复制操作结束后，两个变量实际上将<strong>引用同一个对象</strong>。因此，改变其中一个变量，就会影响另一个变量。</p>
-<h3 id="4-1-3-传递参数"><a href="#4-1-3-传递参数" class="headerlink" title="4.1.3 传递参数"></a>4.1.3 传递参数</h3><p><strong>所有函数</strong>的参数都是<strong>按值传递</strong>的。也就是说，把函数外部的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样。<strong>基本类型值</strong>的传递如同基本类型变量的复制一样，而<strong>引用类型值</strong>的传递则如同引用类型变量的复制一样。<strong>访问变量有按值和按引用两种方式，而参数只能按值传递。</strong></p>
+<h3 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h3><p><strong>所有函数</strong>的参数都是<strong>按值传递</strong>的。也就是说，把函数外部的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样。<strong>基本类型值</strong>的传递如同基本类型变量的复制一样，而<strong>引用类型值</strong>的传递则如同引用类型变量的复制一样。<strong>访问变量有按值和按引用两种方式，而参数只能按值传递。</strong></p>
 <p>在向参数传递<strong>基本类型</strong>的值时，被传递的<strong>值</strong>会被赋值给一个局部变量。在向参数传递<strong>引用类型</strong>的值时，会把<strong>这个值在内存中的地址</strong>复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。</p>
 <blockquote>
 <p>有很多人<strong>错误</strong>地认为：在局部作用域中修改的对象会在全局作用域中反映出来，就说明参数是按引用传递的。</p>
@@ -331,11 +331,11 @@
 <p>为了证明<strong>对象是按值传递的</strong>，我们看一看下面这个例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    obj.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">    obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    obj.name = <span class="string">"Greg"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">setName(person);</span><br><span class="line">alert(person.name); <span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure>
 <p>在把 <code>person</code> 传递给 <code>setName()</code> 后，其 <code>name</code> 属性被设置为 <code>&quot;Nicholas&quot;</code>。然后，又将一个新对象赋给变量 <code>obj</code>，同时将其 <code>name</code> 属性设置为 <code>&quot;Greg&quot;</code>。如果 <code>person</code> 是按引用传递的，那么 <code>person</code> 就会自动被修改为指向其 <code>name</code> 属性值 为 <code>&quot;Greg&quot;</code> 的新对象。但是，当接下来再访问 <code>person.name</code> 时，显示的值仍然是 <code>&quot;Nicholas&quot;</code>。这说明即使在函数内部修改了参数的值，但原始的引用仍然保持未变。实际上，当在函数内部重写 <code>obj</code> 时，这个变量引用的就是一个局部对象了。而这个局部对象会在函数执行完毕后立即被销毁。</p>
-<h3 id="4-1-4-检测类型"><a href="#4-1-4-检测类型" class="headerlink" title="4.1.4 检测类型"></a>4.1.4 检测类型</h3><p>在检测<strong>基本数据类型</strong>时 <code>typeof</code> 操作符是最佳的工具。说得更具体一点，<code>typeof</code> 操作符是确定一个变量是<strong>字符串</strong>、<strong>数值</strong>、<strong>布尔值</strong>，还是 <code>undefined</code> 的最佳工具。(<code>null</code> 是<code>object</code>类型，<code>NaN</code> 是 <code>number</code> 类型)</p>
+<h3 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h3><p>在检测<strong>基本数据类型</strong>时 <code>typeof</code> 操作符是最佳的工具。说得更具体一点，<code>typeof</code> 操作符是确定一个变量是<strong>字符串</strong>、<strong>数值</strong>、<strong>布尔值</strong>，还是 <code>undefined</code> 的最佳工具。(<code>null</code> 是<code>object</code>类型，<code>NaN</code> 是 <code>number</code> 类型)</p>
 <p>虽然在检测基本数据类型时 <code>typeof</code> 是非常得力的助手，但在检测引用类型的值时，这个操作符的用处不大。通常，我们并不是想知道某个值是对象，而是想知道它是<strong>什么类型的对象</strong>，这时需要使用 <code>instanceof</code> 操作符，其语法如下所示:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = variable <span class="keyword">instanceof</span> <span class="keyword">constructor</span></span><br></pre></td></tr></table></figure>
 <p>如果变量是给定引用类型(根据它的原型链来识别)的实例，那么<br><code>instanceof</code> 操作符就会返回 <code>true</code>。</p>
-<h2 id="4-2-执行环境及作用域"><a href="#4-2-执行环境及作用域" class="headerlink" title="4.2 执行环境及作用域"></a>4.2 执行环境及作用域</h2><p><strong>执行环境</strong>(execution context)是 JavaScript 中最为重要的一个概念。<strong>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</strong>每个执行环境都有一个与之关联的<strong>变量对象</strong>(variable object)，环境中定义的<strong>所有变量和函数</strong>都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。</p>
+<h2 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h2><p><strong>执行环境</strong>(execution context)是 JavaScript 中最为重要的一个概念。<strong>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</strong>每个执行环境都有一个与之关联的<strong>变量对象</strong>(variable object)，环境中定义的<strong>所有变量和函数</strong>都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。</p>
 <p><strong>全局执行环境</strong>是最外围的一个执行环境。根据所在的宿主环境不同，表示执行环境的对象也不一样。在 Web 浏览器中，全局执行环境被认为是 <code>window</code> 对象，因此<strong>所有全局变量和函数</strong>都是作为 <code>window</code> 对象的属性和方法创建的。某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁(全局执行环境直到应用程序退出——例如关闭网页或浏览器——时才会被销毁)。</p>
 <p><strong>每个函数都有自己的执行环境</strong>。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。 而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。</p>
 <p>当代码在一个环境中执行时，会创建变量对象的一个<strong>作用域链</strong>(scope chain)。<strong>作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。</strong>作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其<strong>活动对象</strong>(activation object)作为变量对象。活动对象在最开始时只包含一个变量，即 <code>arguments</code> 对象(这个对象在全局环境中是不存在的)。作用域链中的下一个变量对象来自<strong>包含(外部)</strong>环境，而再下一个变量对象则来自下一个包含环境。这样，一直延续到全局执行环境；全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
@@ -344,7 +344,7 @@
 <blockquote>
 <p>函数参数也被当作变量来对待，因此其访问规则与执行环境中的其他变量相同。</p>
 </blockquote>
-<h3 id="4-2-1-延长作用域链"><a href="#4-2-1-延长作用域链" class="headerlink" title="4.2.1 延长作用域链"></a>4.2.1 延长作用域链</h3><p>虽然执行环境的类型总共只有两种——全局和局部(函数)，但还是有其他办法来延长作用域链。 这么说是因为有些语句可以<strong>在作用域链的前端临时增加一个变量对象</strong>，该变量对象会在代码执行后被移除。在两种情况下会发生这种现象。具体来说，就是当执行流进入下列任何一个语句时，作用域链就会 得到加长:</p>
+<h3 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h3><p>虽然执行环境的类型总共只有两种——全局和局部(函数)，但还是有其他办法来延长作用域链。 这么说是因为有些语句可以<strong>在作用域链的前端临时增加一个变量对象</strong>，该变量对象会在代码执行后被移除。在两种情况下会发生这种现象。具体来说，就是当执行流进入下列任何一个语句时，作用域链就会 得到加长:</p>
 <ul>
 <li><code>try-catch</code> 语句的 <code>catch</code> 块</li>
 <li><code>with</code> 语句。</li>
@@ -353,24 +353,24 @@
 <p>下面看一个例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildUrl</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> qs = <span class="string">"?debug=true"</span>;</span><br><span class="line">    <span class="keyword">with</span>(location) &#123;</span><br><span class="line">        <span class="keyword">var</span> url = href + qs;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> url; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在此，<code>with</code> 语句接收的是 <code>location</code> 对象，因此其变量对象中就包含了 <code>location</code> 对象的所有属性和方法，而这个变量对象被添加到了作用域链的前端。<code>buildUrl()</code> 函数中定义了一个变量 <code>qs</code>。当在 <code>with</code> 语句中引用变量 <code>href</code> 时（实际引用的是 <code>location.href</code>），可以在当前执行环境的变量对象中 找到。当引用变量 <code>qs</code> 时，引用的则是在 <code>buildUrl()</code> 中定义的那个变量，而该变量位于函数环境的变量对象中。至于 <code>with</code> 语句内部，则定义了一个名为 <code>url</code> 的变量，因而 <code>url</code> 就成了函数执行环境的一部分，所以可以作为函数的值被返回。</p>
-<h3 id="4-2-2-没有块级作用域"><a href="#4-2-2-没有块级作用域" class="headerlink" title="4.2.2 没有块级作用域"></a>4.2.2 没有块级作用域</h3><p>JavaScript <strong>没有块级作用域</strong>经常会导致理解上的困惑。</p>
+<h3 id="没有块级作用域"><a href="#没有块级作用域" class="headerlink" title="没有块级作用域"></a>没有块级作用域</h3><p>JavaScript <strong>没有块级作用域</strong>经常会导致理解上的困惑。</p>
 <p>例如，下面的代码在 JavaScript 中并不会得到想象中的结果：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> color = <span class="string">"blue"</span>;</span><br><span class="line">&#125;</span><br><span class="line">alert(color); <span class="comment">//"blue"</span></span><br></pre></td></tr></table></figure>
 <p>这里是在一个 <code>if</code> 语句中定义了变量 <code>color</code>。如果是在 C、C++或 Java 中，<code>color</code> 会在 <code>if</code> 语句执行完毕后被销毁。但在 JavaScript 中，<code>if</code> 语句中的变量声明会将变量添加到当前的执行环境（这里是全局环境）中。在使用 <code>for</code> 语句时<strong>尤其要牢记</strong>这一差异，例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    doSomething(i);</span><br><span class="line">&#125;</span><br><span class="line">alert(i); <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-2-3-声明变量"><a href="#4-2-3-声明变量" class="headerlink" title="4.2.3 声明变量"></a>4.2.3 声明变量</h3><p>使用 <code>var</code> 声明的变量会自动被添加到最接近的环境中。在函数内部，最接近的环境就是函数的局部环境；在 <code>with</code> 语句中，最接近的环境是函数环境。<strong>如果初始化变量时没有使用 <code>var</code> 声明，该变量会自动被添加到全局环境。</strong></p>
+<h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3><p>使用 <code>var</code> 声明的变量会自动被添加到最接近的环境中。在函数内部，最接近的环境就是函数的局部环境；在 <code>with</code> 语句中，最接近的环境是函数环境。<strong>如果初始化变量时没有使用 <code>var</code> 声明，该变量会自动被添加到全局环境。</strong></p>
 <blockquote>
 <p>在编写 JavaScript 代码的过程中，不声明而直接初始化变量是一个常见的错误做法，因为这样可能会导致意外。我们建议在初始化变量之前，一定要先声明，这样就可以避免类似问题。在严格模式下，初始化未经声明的变量会导致错误。</p>
 </blockquote>
-<h2 id="4-3-垃圾收集"><a href="#4-3-垃圾收集" class="headerlink" title="4.3 垃圾收集"></a>4.3 垃圾收集</h2><p>JavaScript 具有<strong>自动垃圾收集机制</strong>，也就是说，执行环境会负责管理代码执行过程中使用的内存。这种垃圾收集机制的原理其实很简单：找出那些不再继续使用的变量，然后释放其占用的内存。为此，垃圾收集器会按照固定的时间间隔(或代码执行中预定的收集时间)，周期性地执行这一操作。</p>
+<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><p>JavaScript 具有<strong>自动垃圾收集机制</strong>，也就是说，执行环境会负责管理代码执行过程中使用的内存。这种垃圾收集机制的原理其实很简单：找出那些不再继续使用的变量，然后释放其占用的内存。为此，垃圾收集器会按照固定的时间间隔(或代码执行中预定的收集时间)，周期性地执行这一操作。</p>
 <p>局部变量只在函数执行的过程中存在。而在这个过程中，会为局部变量在栈（或堆）内存上分配相应的空间，以便存储它们的值。然后在函数中使用这些变量，直至函数执行结束。此时，局部变量就没有存在的必要了，因此可以释放它们的内存以供将来使用。在这种情况下，很容易判断变量是否还有存在的必要，但并非所有情况下都这么容易就能得出结论。垃圾收集器必须跟踪哪个变量有用哪个变量没用，对于不再有用的变量打上标记，以备将来收回其占用的内存。用于标识无用变量的策略可能会因实现而异，但具体到浏览器中的实现，则通常有两个策略。</p>
-<h3 id="4-3-1-标记清除"><a href="#4-3-1-标记清除" class="headerlink" title="4.3.1 标记清除"></a>4.3.1 标记清除</h3><p>JavaScript 中最常用的垃圾收集方式是<strong>标记清除</strong>(mark-and-sweep)。当变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用到它们。而当变量离开环境时，则将其标记为“离开环境”。</p>
+<h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>JavaScript 中最常用的垃圾收集方式是<strong>标记清除</strong>(mark-and-sweep)。当变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用到它们。而当变量离开环境时，则将其标记为“离开环境”。</p>
 <p>垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记。然后，它会去掉环境中的变量以及被环境中的变量引用的变量的标记。而在此之后再被加上标记的变量将被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了。最后，垃圾收集器完成内存清除工作，销毁那些带标记的值并回收它们所占用的内存空间。</p>
-<h3 id="4-3-2-引用计数"><a href="#4-3-2-引用计数" class="headerlink" title="4.3.2 引用计数"></a>4.3.2 引用计数</h3><p>另一种不太常见的垃圾收集策略叫做<strong>引用计数</strong>(reference counting)。引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是 1。 如果同一个值又被赋给另一个变量，则该值的引用次数加 1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减 1。当这个值的引用次数变成 0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。</p>
-<h3 id="4-3-4-管理内存"><a href="#4-3-4-管理内存" class="headerlink" title="4.3.4 管理内存"></a>4.3.4 管理内存</h3><p>使用具备垃圾收集机制的语言编写程序，开发人员一般不必操心内存管理的问题。但是，JavaScript 在进行内存管理及垃圾收集时面临的问题还是有点与众不同。其中最主要的一个问题，就是分配给 Web 浏览器的可用内存数量通常要比分配给桌面应用程序的少。这样做的目的主要是出于安全方面的考虑，目的是防止运行 JavaScript 的网页耗尽全部系统内存而导致系统崩溃。内存限制问题不仅会影响给变量分配内存，同时还会影响调用栈以及在一个线程中能够同时执行的语句数量。</p>
+<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>另一种不太常见的垃圾收集策略叫做<strong>引用计数</strong>(reference counting)。引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是 1。 如果同一个值又被赋给另一个变量，则该值的引用次数加 1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减 1。当这个值的引用次数变成 0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。</p>
+<h3 id="管理内存"><a href="#管理内存" class="headerlink" title="管理内存"></a>管理内存</h3><p>使用具备垃圾收集机制的语言编写程序，开发人员一般不必操心内存管理的问题。但是，JavaScript 在进行内存管理及垃圾收集时面临的问题还是有点与众不同。其中最主要的一个问题，就是分配给 Web 浏览器的可用内存数量通常要比分配给桌面应用程序的少。这样做的目的主要是出于安全方面的考虑，目的是防止运行 JavaScript 的网页耗尽全部系统内存而导致系统崩溃。内存限制问题不仅会影响给变量分配内存，同时还会影响调用栈以及在一个线程中能够同时执行的语句数量。</p>
 <p>因此，确保占用最少的内存可以让页面获得更好的性能。而优化内存占用的最佳方式，就是为执行中的代码只保存必要的数据。<strong>一旦数据不再有用，最好通过将其值设置为 <code>null</code> 来释放其引用——这个做法叫做解除引用(dereferencing)。</strong>这一做法适用于大多数<strong>全局变量</strong>和<strong>全局对象</strong>的属性。局部变量会在它们离开执行环境时自动被解除引用。</p>
 <p>不过，解除一个值的引用<strong>并不意味着自动回收该值所占用的内存</strong>。解除引用的真正作用是<strong>让值脱离执行环境</strong>，以便垃圾收集器下次运行时将其回收。</p>
-<h2 id="4-4-小结"><a href="#4-4-小结" class="headerlink" title="4.4 小结"></a>4.4 小结</h2><p>JavaScript 变量可以用来保存两种类型的值：<strong>基本类型值</strong>和<strong>引用类型值</strong>。基本类型的值源自以下 5 种基本数据类型：<code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code> 和 <code>String</code>。基本类型值和引用类型值具有以下特点：</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>JavaScript 变量可以用来保存两种类型的值：<strong>基本类型值</strong>和<strong>引用类型值</strong>。基本类型的值源自以下 5 种基本数据类型：<code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code> 和 <code>String</code>。基本类型值和引用类型值具有以下特点：</p>
 <ul>
 <li>基本类型值在内存中占据<strong>固定大小</strong>的空间，因此被保存在<strong>栈内存</strong>中。</li>
 <li>从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本。</li>
@@ -425,7 +425,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/01/JavaScript中的对象总结(MDN)/" rel="next" title="JavaScript中的对象总结(MDN)">
+              <a href="/2017/12/01/JavaScript 中的对象总结(MDN)/" rel="next" title="JavaScript中的对象总结(MDN)">
                 <i class="fa fa-chevron-left"></i> JavaScript中的对象总结(MDN)
               </a>
             
@@ -566,7 +566,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-基本类型和引用类型"><span class="nav-text">4.1 基本类型和引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-动态的属性"><span class="nav-text">4.1.1 动态的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-复制变量值"><span class="nav-text">4.1.2 复制变量值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-3-传递参数"><span class="nav-text">4.1.3 传递参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-4-检测类型"><span class="nav-text">4.1.4 检测类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-执行环境及作用域"><span class="nav-text">4.2 执行环境及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-延长作用域链"><span class="nav-text">4.2.1 延长作用域链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-没有块级作用域"><span class="nav-text">4.2.2 没有块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-声明变量"><span class="nav-text">4.2.3 声明变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-垃圾收集"><span class="nav-text">4.3 垃圾收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-标记清除"><span class="nav-text">4.3.1 标记清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-2-引用计数"><span class="nav-text">4.3.2 引用计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-4-管理内存"><span class="nav-text">4.3.4 管理内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-小结"><span class="nav-text">4.4 小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型和引用类型"><span class="nav-text">基本类型和引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态的属性"><span class="nav-text">动态的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制变量值"><span class="nav-text">复制变量值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传递参数"><span class="nav-text">传递参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测类型"><span class="nav-text">检测类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行环境及作用域"><span class="nav-text">执行环境及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#延长作用域链"><span class="nav-text">延长作用域链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#没有块级作用域"><span class="nav-text">没有块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明变量"><span class="nav-text">声明变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集"><span class="nav-text">垃圾收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记清除"><span class="nav-text">标记清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数"><span class="nav-text">引用计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理内存"><span class="nav-text">管理内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
