@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#3DC7BE">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tian.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tian.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tian.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/tian.jpg?v=5.1.3" color="#3DC7BE">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是信息系统？信息系统是特指在经济或社会的组织中，以满足管理者的信息需求为目标，以计算机和现代通信技术等现代信息技术为手段，包括设备、技术、人员与机构在内的综合系统。 信息系统是各种类型管理信息系统、自动化信息管理系统、信息处理系统、信息服务系统、数据处理系统、信息决策系统和计算机辅助管理系统的总称。 信息系统的组成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息系统分析">
+<meta property="og:url" content="http://yoursite.com/2017/12/24/信息系统分析/index.html">
+<meta property="og:site_name" content="田丰的笔记本子">
+<meta property="og:description" content="什么是信息系统？信息系统是特指在经济或社会的组织中，以满足管理者的信息需求为目标，以计算机和现代通信技术等现代信息技术为手段，包括设备、技术、人员与机构在内的综合系统。 信息系统是各种类型管理信息系统、自动化信息管理系统、信息处理系统、信息服务系统、数据处理系统、信息决策系统和计算机辅助管理系统的总称。 信息系统的组成部分从概念上来看：信息系统主要包括信息管理者、信息源、信息处理器、信息用户、信息">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p05mkbfri.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%AC%A6%E5%8F%B7.png">
+<meta property="og:image" content="http://p05mkbfri.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%A4%BA%E4%BE%8B.PNG">
+<meta property="og:image" content="http://p05mkbfri.bkt.clouddn.com/%E5%86%B3%E7%AD%96%E6%A0%91.PNG">
+<meta property="og:image" content="http://p05mkbfri.bkt.clouddn.com/%E5%86%B3%E7%AD%96%E8%A1%A8.PNG">
+<meta property="og:image" content="http://p05mkbfri.bkt.clouddn.com/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95.png">
+<meta property="og:updated_time" content="2017-12-24T10:25:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="信息系统分析">
+<meta name="twitter:description" content="什么是信息系统？信息系统是特指在经济或社会的组织中，以满足管理者的信息需求为目标，以计算机和现代通信技术等现代信息技术为手段，包括设备、技术、人员与机构在内的综合系统。 信息系统是各种类型管理信息系统、自动化信息管理系统、信息处理系统、信息服务系统、数据处理系统、信息决策系统和计算机辅助管理系统的总称。 信息系统的组成部分从概念上来看：信息系统主要包括信息管理者、信息源、信息处理器、信息用户、信息">
+<meta name="twitter:image" content="http://p05mkbfri.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%AC%A6%E5%8F%B7.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/24/信息系统分析/"/>
+
+
+
+
+
+  <title>信息系统分析 | 田丰的笔记本子</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">田丰的笔记本子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/24/信息系统分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田丰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://p05mkbfri.bkt.clouddn.com/bye.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="田丰的笔记本子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">信息系统分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T18:25:25+08:00">
+                2017-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是信息系统？"><a href="#什么是信息系统？" class="headerlink" title="什么是信息系统？"></a>什么是信息系统？</h3><p>信息系统是特指在经济或社会的组织中，以满足管理者的信息需求为目标，以计算机和现代通信技术等现代信息技术为手段，包括<strong>设备、技术、人员与机构</strong>在内的综合系统。</p>
+<p>信息系统是各种类型<strong>管理信息系统、自动化信息管理系统、信息处理系统、信息服务系统、数据处理系统、信息决策系统和计算机辅助管理系统</strong>的总称。</p>
+<h3 id="信息系统的组成部分"><a href="#信息系统的组成部分" class="headerlink" title="信息系统的组成部分"></a>信息系统的组成部分</h3><p>从概念上来看：信息系统主要包括信息管理者、信息源、信息处理器、信息用户、信息存储器和信息传输通道6个部分组成。</p>
+<h3 id="当代信息环境发生了哪些变化？"><a href="#当代信息环境发生了哪些变化？" class="headerlink" title="当代信息环境发生了哪些变化？"></a>当代信息环境发生了哪些变化？</h3><ol>
+<li>信息化浪潮席卷全球</li>
+<li>经济全球化</li>
+<li>知识经济时代的来临</li>
+</ol>
+<h3 id="信息系统规划与企业发展战略有何关系？"><a href="#信息系统规划与企业发展战略有何关系？" class="headerlink" title="信息系统规划与企业发展战略有何关系？"></a>信息系统规划与企业发展战略有何关系？</h3><p>企业的决策者们在制定企业发展战略时，应该将信息系统的建设放在重要的位置。信息系统规划的核心问题之一，就是使信息系统的发展战略与整个企业的发展战略保持协调一致。企业管理者应从战略管理的角度出发，结合企业内外部环境变化，以企业长期利益实现为目标，结合企业当前的计划指标，从企业发展战略的角度更深层次地考虑信息系统规划中的问题，要注意信息系统规划与企业组织战略规划之间的协调关系。</p>
+<h3 id="信息系统规划的实施方法具体包括哪些？"><a href="#信息系统规划的实施方法具体包括哪些？" class="headerlink" title="信息系统规划的实施方法具体包括哪些？"></a>信息系统规划的实施方法具体包括哪些？</h3><ol>
+<li><strong>业务系统规划法</strong>是通过全民调查、分析组织信息需求、制定信息系统总体方案的一种方法。</li>
+<li><strong>关键成功因素法</strong>就是要识别联系于系统目标的主要数据类及其关系，与BSP方法想相反，CSF方法的思路不是全面分析，而是重点突破。</li>
+<li><strong>战略目标急转化法</strong>就是把整个战略目标看成“信息集合”，由使命、目标、战略和其他战略变量等组成。</li>
+</ol>
+<h3 id="结构化生命周期划分"><a href="#结构化生命周期划分" class="headerlink" title="*结构化生命周期划分"></a>*结构化生命周期划分</h3><ol>
+<li>系统规划</li>
+<li>系统分析</li>
+<li>系统设计</li>
+<li>系统实施</li>
+<li>系统运行与维护</li>
+</ol>
+<h3 id="生命周期法开发流程有哪些环节？"><a href="#生命周期法开发流程有哪些环节？" class="headerlink" title="生命周期法开发流程有哪些环节？"></a>生命周期法开发流程有哪些环节？</h3><ol>
+<li><strong>信息系统规划</strong>是信息系统实践中的重要问题之一，信息系统的建设往往投资大、耗时长，规划不好不仅对自身造成损失，由此引起企业运行不好的间接损失就更加巨大。内容包括信息系统战略规划和可行性分析。</li>
+<li><strong>系统分析</strong>是应用系统思想和方法，对已选定的对象与开发范围进行有目的，有步骤的实际调查和科学分析。</li>
+<li><strong>系统设计</strong>，该阶段要回答的中心问题是系统“做什么”，即明确系统的功能组成，这一阶段建立了系统的逻辑模型。</li>
+<li><strong>系统实施</strong>是信息系统开发的最后一个阶段，这一阶段要把物理模型装换为可时间运行的为物理系统，交付用户使用。</li>
+<li><strong>系统运行与维护</strong>，系统运行指信息系统业务过程和应用程序逐日、持续的运行，直至生命周期结束，被新的信息系统所代替，维护的内容主要包括程序的维护，数据的维护，设备的维护和系统恢复</li>
+</ol>
+<h3 id="常见的信息系统开发模型有哪些？"><a href="#常见的信息系统开发模型有哪些？" class="headerlink" title="常见的信息系统开发模型有哪些？"></a>常见的信息系统开发模型有哪些？</h3><ol>
+<li><strong>瀑布模型</strong>：将软件生命周期划分为制定计划、需求分析、软件设计、程序编写、软件测试和运行维护6个基本活动。</li>
+<li><strong>螺旋模型</strong>：采用一种周期性的方法来进行系统开发，这回导致开发出来总众多的中间版本。</li>
+<li><strong>增量模型</strong>：从何了瀑布模型的基本成分和原型实现的迭代特征，该模型采用随着日程时间的进展而交错的线性序列，每个线性序列产生软件的一个科发布的“增量”。</li>
+<li><strong>喷泉模型</strong>：是一种用户需求为动力，已对象为驱动的模型，主要用于描述就面对对象的软件开发过程。</li>
+<li><strong>快速原型模型</strong>：快速原型是利用原型辅助软件开发的一种思想，经过简单快速分析，快速实现一个系统原型，用户与开发者在使用原型过程中加强通信与反馈没通过反复评价和改进原型，减少误解，弥补漏洞，适应变化，最终得到高质量的软件。</li>
+</ol>
+<h3 id="比较传统的信息系统开发方法和现代的有什么不同"><a href="#比较传统的信息系统开发方法和现代的有什么不同" class="headerlink" title="比较传统的信息系统开发方法和现代的有什么不同"></a>比较传统的信息系统开发方法和现代的有什么不同</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">内容</th>
+<th style="text-align:left">面向对象方法</th>
+<th style="text-align:left">结构化生命周期法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">分析工具</td>
+<td style="text-align:left">用例图、类图、交互图、活动图等</td>
+<td style="text-align:left">业务流程图、数据流图、E-R图、数据字典等</td>
+</tr>
+<tr>
+<td style="text-align:left">关注角度</td>
+<td style="text-align:left">对象（属性、行为、结构、连接方式）</td>
+<td style="text-align:left">功能、模块</td>
+</tr>
+<tr>
+<td style="text-align:left">与数据库关系</td>
+<td style="text-align:left">实体类与数据库中表有对应关系</td>
+<td style="text-align:left">功能模块与数据库结构相互独立，无映射</td>
+</tr>
+<tr>
+<td style="text-align:left">问题处理单位</td>
+<td style="text-align:left">类</td>
+<td style="text-align:left">模块</td>
+</tr>
+<tr>
+<td style="text-align:left">数据处理方式</td>
+<td style="text-align:left">通过接口依靠对象自身的成员函数处理</td>
+<td style="text-align:left">直接通过函数处理</td>
+</tr>
+<tr>
+<td style="text-align:left">控制程序方式</td>
+<td style="text-align:left">事件驱动</td>
+<td style="text-align:left">模块调用、控制</td>
+</tr>
+</tbody>
+</table>
+<h4 id="面向对象方法"><a href="#面向对象方法" class="headerlink" title="面向对象方法"></a>面向对象方法</h4><p>优点：</p>
+<ol>
+<li>分析、设计中的对象和软件中的对象一致</li>
+<li>实现软件复用，增强了系统的适应性，简化程序设计</li>
+<li>系统稳定性、可重用性及可维护性好</li>
+<li>开发周期短。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>系统在分析阶段对对象的抽象困难</li>
+<li>需要一定的软件基础支持才能应用</li>
+<li>结构化程度不高</li>
+</ol>
+<h4 id="结构化方法"><a href="#结构化方法" class="headerlink" title="结构化方法"></a>结构化方法</h4><p>优点：</p>
+<ol>
+<li>“自上而下”地分析和设计，保证了系统的整体性和目标的一致性</li>
+<li>面向用户，遵循用户至上的原则</li>
+<li>严格区分系统开发的阶段性；每一阶段的工作成果是下一阶段的依据，便于系统开发的管理和控制</li>
+<li>按工程标准建立标准化的文档资料</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>用户素质、系统分析员和管理者之间的沟通要求高</li>
+<li>开发周期长，文档过多，难于适应环境变化</li>
+<li>结构化程度较低的系统，在开发初期难以锁定功能要求</li>
+<li>各阶段的审批工作困难；所使用的工具落后</li>
+</ol>
+<h4 id="原型法"><a href="#原型法" class="headerlink" title="原型法"></a>原型法</h4><p>优点：</p>
+<ol>
+<li>充分利用最新软件工具，系统开发周期短，费用相对少</li>
+<li>用户参与开发过程，系统更加贴近实际，易学易用，减少用户的培训时间</li>
+<li>系统开发过程循序渐进，符合人们认识事物的规律，信息反馈及时性强，确保了较好的用户满意度</li>
+<li>构造出用户“看得见，摸得着”的系统原型，缩小了理解和认识上存在的差距</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>不适合大规模系统开发</li>
+<li>开发过程管理要求高，要经过“修改—评价—再修改”的多次反复</li>
+<li>用户过早看到系统原型，误认为最终系统就是原型模样，易使用户失去信心</li>
+<li>开发人员易将原型取代系统分析；缺乏规范化的文档资料</li>
+<li>需要较高的系统开发环境支持，如系统开发工具、软硬件、开发环境、开发人员及用户素质等</li>
+</ol>
+<h3 id="信息系统分析阶段的主要活动"><a href="#信息系统分析阶段的主要活动" class="headerlink" title="信息系统分析阶段的主要活动"></a>信息系统分析阶段的主要活动</h3><p>系统的初步调查；可行性研究；详细调查；新系统逻辑方案的提出。</p>
+<h3 id="什么是结构化分析方法？有哪些工具？需要经过哪些步骤来实现？"><a href="#什么是结构化分析方法？有哪些工具？需要经过哪些步骤来实现？" class="headerlink" title="什么是结构化分析方法？有哪些工具？需要经过哪些步骤来实现？"></a>什么是结构化分析方法？有哪些工具？需要经过哪些步骤来实现？</h3><p><strong>系统结构化分析</strong>采用介于形式语言和自然语言之间的描述方式，建立起以数据流程图为核心，以数据字典和处理逻辑说明为补充说明工具的新系统的逻辑模型。</p>
+<p>步骤：</p>
+<ol>
+<li>了解当前系统的工作流程，获得当前系统的物理模型。</li>
+<li>抽象出当前系统的逻辑模型。</li>
+<li>建立目标系统的逻辑模型。</li>
+<li>做进一步补充和优化来实现。</li>
+</ol>
+<h3 id="什么是数据流程图，主要的符号及其意义是什么？"><a href="#什么是数据流程图，主要的符号及其意义是什么？" class="headerlink" title="*什么是数据流程图，主要的符号及其意义是什么？"></a>*什么是数据流程图，主要的符号及其意义是什么？</h3><p><strong>数据流程图</strong>：以图形的方式描述数据在系统中流动和处理的过程。只反映系统必须完成的逻辑功能，是一种功能模型。</p>
+<p><img src="http://p05mkbfri.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%AC%A6%E5%8F%B7.png" alt="数据流程图符号"></p>
+<ul>
+<li><strong>外部实体</strong>：是系统之外的，又与系统有联系的人或事物</li>
+<li><strong>数据处理</strong>：是对数据的逻辑处理，也是数据的变换过程</li>
+<li><strong>数据流</strong>：表示流动着的数据，是处理功能的输入和输出</li>
+<li><strong>数据存储</strong>：指通过数据文件、文件夹等存储数据</li>
+</ul>
+<h3 id="简述数据字典中的条目"><a href="#简述数据字典中的条目" class="headerlink" title="*简述数据字典中的条目"></a>*简述数据字典中的条目</h3><ol>
+<li><strong>数据项</strong>：数据项又称数据元素，是数据的最小单位</li>
+<li><strong>数据结构</strong>：数据结构用于描述某些数据项之间的关系</li>
+<li><strong>数据结构</strong>：数据结构用于描述某些数据项之间的关系</li>
+<li><strong>数据存储</strong>：数据存储中只描述数据的逻辑存储结构，而不涉及它的物理组织</li>
+<li><strong>处理逻辑</strong>：处理逻辑的定义仅对数据流程图中最底层的处理逻辑加以说明</li>
+<li><strong>外部实体</strong>：外部实体是信息系统数据的来源和去向</li>
+</ol>
+<h3 id="绘制数据流程图"><a href="#绘制数据流程图" class="headerlink" title="*绘制数据流程图"></a>*绘制数据流程图</h3><p><img src="http://p05mkbfri.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%A4%BA%E4%BE%8B.PNG" alt="数据流程图"></p>
+<h3 id="绘制决策树、决策表"><a href="#绘制决策树、决策表" class="headerlink" title="*绘制决策树、决策表"></a>*绘制决策树、决策表</h3><p><img src="http://p05mkbfri.bkt.clouddn.com/%E5%86%B3%E7%AD%96%E6%A0%91.PNG" alt="决策树"></p>
+<p><img src="http://p05mkbfri.bkt.clouddn.com/%E5%86%B3%E7%AD%96%E8%A1%A8.PNG" alt="决策表"></p>
+<h3 id="系统总体设计和详细设计的任务分别是什么"><a href="#系统总体设计和详细设计的任务分别是什么" class="headerlink" title="系统总体设计和详细设计的任务分别是什么"></a>系统总体设计和详细设计的任务分别是什么</h3><p><strong>系统总体设计</strong>的核心任务是完成系统模块结构设计。即在目标系统逻辑模型的基础上，把系统分解为若干功能单一、彼此相对独立的模块，形成系统的模块结构，包括模块的组成、模块的功能和模块间的相互关系。总体设计的主要任务包括模块结构设计、系统物理配置方案设计、总体数据库设计。</p>
+<p><strong>系统详细设计</strong>的任务是在系统总体设计的指导下，对系统各组成部分进行细致、具体的物理设计，使系统总体设计阶段所作的各种决定具体化。主要完成的工作有代码设计、数据库设计、处理流程设计、人机界面设计、输入输出设计等。</p>
+<h3 id="系统设计的原则"><a href="#系统设计的原则" class="headerlink" title="*系统设计的原则"></a>*系统设计的原则</h3><ol>
+<li><p><strong>系统性原则</strong>。系统是作为一个有机整体而存在的，因此在系统设计中，要从整个系统的角度进行考虑。</p>
+</li>
+<li><p><strong>简单性原则</strong>。在系统达到预定目标、完成规定功能的前提下，应该尽量简单。</p>
+</li>
+<li><strong>可靠性原则</strong>。可靠性既是评价系统设计质量的一个重要指标，又是系统设计的一个基本出发点。只有系统安全可靠，才能在实际中发挥应有的作用。</li>
+<li><strong>灵活性原则</strong>。系统对外界环境的变化要有很强的适应能力，并且容易修改和维护。</li>
+</ol>
+<h3 id="结构化设计的原则"><a href="#结构化设计的原则" class="headerlink" title="*结构化设计的原则"></a>*结构化设计的原则</h3><ol>
+<li><strong>模块化原则</strong>。模块化是结构化设计的基础，将整个系统分解成独立的模块，通过对模块的设计实现系统功能。</li>
+<li><strong>一致性原则</strong>。保证系统设计过程中具有统一的规范、统一的标准和统一的文件模式等。</li>
+<li><strong>分解——协调原则</strong>。在处理中根据系统总体要求协调相互联系的各个组成部分。</li>
+<li><strong>自顶向下原则</strong>。先把握系统的总体目标和功能，然后逐级分解，逐步细化。</li>
+<li><strong>信息隐蔽和抽象原则</strong>。上层模块只规定下层模块做什么和模块间的协调关系，不规定如何做，以保证各模块的独立性和内部结构合理性，使模块间层次分明，易于理解、实施和维护。</li>
+<li><strong>明确性原则</strong>。每个模块必须功能明确、接口明确、消除多重功能和无用接口。</li>
+</ol>
+<h3 id="自顶向下设计方法的基本思想"><a href="#自顶向下设计方法的基本思想" class="headerlink" title="*自顶向下设计方法的基本思想"></a>*自顶向下设计方法的基本思想</h3><p>1).<strong>将一个复杂的系统分解成一个多层次的模块化结构</strong></p>
+<p><img src="http://p05mkbfri.bkt.clouddn.com/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95.png" alt="自顶向下设计方法"></p>
+<p>2).<strong>每一个模块尽可能独立</strong>，即尽量使每个模块成为一个独立的组成单元，使模块之间的联系降到最低程度。</p>
+<p>3).<strong>可用直观的工具来表达系统的结构</strong>。结构化方法为系统开发人员提供了一套简明的图形表达工具，如数据流图、数据字典、数据存储规范化、数据立即存取图以及功能分析的表达方法，包括决策树、决策表和结构式语言等。</p>
+<h3 id="模块间耦合和模块内部聚合的几种形式"><a href="#模块间耦合和模块内部聚合的几种形式" class="headerlink" title="模块间耦合和模块内部聚合的几种形式"></a>模块间耦合和模块内部聚合的几种形式</h3><p><strong>模块耦合</strong>是衡量一个模块与其他模块之间相互作用程度的指标。如果你两个模块中的每个模块无需另外一模块的存在而能独立工作，则他们彼此都没有联系和依赖，模块耦合程度为零。模块耦合包括四种类型：数据耦合、控制耦合、公共耦合、内部耦合。</p>
+<p><strong>模块聚合</strong>是用来衡量一个模块内部各组成部分间整体统一性的指标，他具体描述一个模块功能专一性的程度。模块内部聚合有七个等级，分别为：功能聚合、顺序聚合、数据聚合、过程聚合、时间聚合、逻辑聚合、偶然聚合。</p>
+<h4 id="模块聚合"><a href="#模块聚合" class="headerlink" title="模块聚合"></a>模块聚合</h4><ol>
+<li><strong>功能聚合</strong>：一个模块只完成一个单独的、能够确切定义的功能。</li>
+<li><strong>顺序聚合</strong>：一个模块内部各个组成部分执行几个处理功能，且一个处理功能所产生的输出数据直接成为下一个处理功能的输入数据。</li>
+<li><strong>数据聚合</strong>：一个模块内各个组成部分的处理功能，都使用相同的输入数据或产生相同的输出数据，且其中各个处理功能是无序的。</li>
+<li><strong>过程聚合</strong>：一个模块内各个组成部分的处理功能各不相同，彼此也没有什么关系，但它们都受同一个控制流支配，决定它们的执行次序。</li>
+<li><strong>时间聚合</strong>：一个模块内各个组成部分的处理功能和时间有关，即在同一时间内执行，典型的有初始化模块和结束模块。</li>
+<li><strong>逻辑聚合</strong>：一个模块内各个组成部分的处理功能彼此无关，但处理逻辑相似。</li>
+<li><strong>偶然聚合</strong>：一个模块由若干个并不相关的功能偶然地组合在一起。</li>
+</ol>
+<h4 id="模块耦合"><a href="#模块耦合" class="headerlink" title="模块耦合"></a>模块耦合</h4><ol>
+<li><strong>数据耦合</strong>：两个模块之间通过调用关系来传递信息，相互传递的信息是数据。数据耦合联系简单，耦合程度低，模块的独立性强。</li>
+<li><strong>控制耦合</strong>：两个模块之间，除了传递数据信息外，还传递控制信息。</li>
+<li><strong>公共耦合</strong>：当两个或多个模块通过一个公共数据环境相互作用时，它们之间的耦合称为公共耦合。</li>
+<li><strong>内容耦合</strong>：一个模块不经调用直接使用或修改另一个模块中的数据，修改其中一个模块时，必然直接影响到另一个模块，甚至产生连锁反应或波动现象。</li>
+</ol>
+<h3 id="面向对象设计的主要任务"><a href="#面向对象设计的主要任务" class="headerlink" title="面向对象设计的主要任务"></a>面向对象设计的主要任务</h3><ol>
+<li><strong>设计软件体系结构</strong>，定义系统的高层划分，确定主要组件及其接口。</li>
+<li><strong>详细设计类或接口</strong>。对分析模型中获得的概念类的属性和方法进行详细设计，完成含有数据类型、可见性、方法参数等完整内容的设计类图。设计用户界面原型，并根据界面绘制程序执行的交互图。</li>
+<li><strong>设计数据库接口</strong>，解决面向对象模型到数据库模型的过渡。</li>
+</ol>
+<h3 id="设计类的主要工作"><a href="#设计类的主要工作" class="headerlink" title="设计类的主要工作"></a>设计类的主要工作</h3><p>设计阶段要讨论的类或对象称为<strong>设计类</strong>。设计类的主要工作是对类属性、方法及类关系等进行详细设计，完成含有数据类型、可见性、方法参数等完整内容的设计类图。</p>
+<h3 id="什么是设计模式？选出一种常用的设计模式进行解释并举例说明。"><a href="#什么是设计模式？选出一种常用的设计模式进行解释并举例说明。" class="headerlink" title="什么是设计模式？选出一种常用的设计模式进行解释并举例说明。"></a>什么是设计模式？选出一种常用的设计模式进行解释并举例说明。</h3><p><strong>设计模式</strong>是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。每一个设计模式系统地命名、解释和评价了面向对象系统中一个重要的和重复出现的设计。设计模式的目标是将设计经验以人们能够有效利用的形式记录下来。</p>
+<p><strong>常用的设计模式</strong>：信息专家模式；将职责分配给拥有履行一个职责所必需信息的类-信息专家。这个类就是相对于这个职责的信息专家类。</p>
+<p><strong>举例</strong>：在网上购物系统中，往购物车里添加商品时，需要与购物车里的已有商品比较，对于这个模式问题就是要判断比较商品是否相同的方法应该由哪个类来实现。判断两个商品是否相同，一般是通过比较商品的唯一标识ID编号来区分的，而商品的ID编号是存在于商品类本身中的，根据信息专家模式的原则，应该把比较商品是否相同的方法放在商品类中。</p>
+<h3 id="什么是白盒测试？什么是黑盒测试？两者的主要区别是什么？"><a href="#什么是白盒测试？什么是黑盒测试？两者的主要区别是什么？" class="headerlink" title="*什么是白盒测试？什么是黑盒测试？两者的主要区别是什么？"></a>*什么是白盒测试？什么是黑盒测试？两者的主要区别是什么？</h3><p><strong>白盒测试</strong>：白盒测试也称为结构测试，将软件看成透明的白盒，根据程序的内部结构和逻辑来设计测试用例，对程序的路径和过程进行测试，以程序的源代码为基础进行测试而不使用用户界面。</p>
+<p><strong>黑盒测试</strong>：黑盒测试是在完全不考虑软件的内部结构和特性的情况下，测试软件的外部特性。黑盒测试只检查程序功能是否符合需求规格说明书的规定。</p>
+<p><strong>两者的区别</strong>：</p>
+<ol>
+<li>白盒测试可以有效地发现程序内部的编码和逻辑错误，但无法检验出程序是否完成了规定的功能。</li>
+<li>黑盒测试可以根据程序的规格说明检测出程序是否完成了规定的功能，但未必能够提供对代码的完全覆盖。</li>
+<li>一般来说在单元测试阶段白盒法使用较多而在集成测试阶段则较多用到黑盒方法。</li>
+</ol>
+<h3 id="软件测试步骤"><a href="#软件测试步骤" class="headerlink" title="软件测试步骤"></a>软件测试步骤</h3><ol>
+<li>单元测试是对程序的最小单位——模块进行测试，检验每个模块是否能单独工作，从而发现模块的编码问题和算法问题</li>
+<li>然后将多个模块连接起来，进行集成测试，以检验概要设计中对模块之间接口设计的问题</li>
+<li>系统测试是将开发的软件与硬件和其它因素综合起来进行全面的检测，对整个系统进行总的功能、性能等方面的测试</li>
+<li>在提交用户的时候进行验收测试，确认系统是否已经满足客户的需求</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/10/JavaScript面向对象程序设计/" rel="next" title="JavaScript 面向对象程序设计">
+                <i class="fa fa-chevron-left"></i> JavaScript 面向对象程序设计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://p05mkbfri.bkt.clouddn.com/bye.jpg"
+                alt="田丰" />
+            
+              <p class="site-author-name" itemprop="name">田丰</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是信息系统？"><span class="nav-text">什么是信息系统？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息系统的组成部分"><span class="nav-text">信息系统的组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当代信息环境发生了哪些变化？"><span class="nav-text">当代信息环境发生了哪些变化？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息系统规划与企业发展战略有何关系？"><span class="nav-text">信息系统规划与企业发展战略有何关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息系统规划的实施方法具体包括哪些？"><span class="nav-text">信息系统规划的实施方法具体包括哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构化生命周期划分"><span class="nav-text">*结构化生命周期划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期法开发流程有哪些环节？"><span class="nav-text">生命周期法开发流程有哪些环节？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的信息系统开发模型有哪些？"><span class="nav-text">常见的信息系统开发模型有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较传统的信息系统开发方法和现代的有什么不同"><span class="nav-text">比较传统的信息系统开发方法和现代的有什么不同</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象方法"><span class="nav-text">面向对象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结构化方法"><span class="nav-text">结构化方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型法"><span class="nav-text">原型法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息系统分析阶段的主要活动"><span class="nav-text">信息系统分析阶段的主要活动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是结构化分析方法？有哪些工具？需要经过哪些步骤来实现？"><span class="nav-text">什么是结构化分析方法？有哪些工具？需要经过哪些步骤来实现？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是数据流程图，主要的符号及其意义是什么？"><span class="nav-text">*什么是数据流程图，主要的符号及其意义是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述数据字典中的条目"><span class="nav-text">*简述数据字典中的条目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制数据流程图"><span class="nav-text">*绘制数据流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制决策树、决策表"><span class="nav-text">*绘制决策树、决策表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统总体设计和详细设计的任务分别是什么"><span class="nav-text">系统总体设计和详细设计的任务分别是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统设计的原则"><span class="nav-text">*系统设计的原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构化设计的原则"><span class="nav-text">*结构化设计的原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自顶向下设计方法的基本思想"><span class="nav-text">*自顶向下设计方法的基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块间耦合和模块内部聚合的几种形式"><span class="nav-text">模块间耦合和模块内部聚合的几种形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模块聚合"><span class="nav-text">模块聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块耦合"><span class="nav-text">模块耦合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象设计的主要任务"><span class="nav-text">面向对象设计的主要任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计类的主要工作"><span class="nav-text">设计类的主要工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是设计模式？选出一种常用的设计模式进行解释并举例说明。"><span class="nav-text">什么是设计模式？选出一种常用的设计模式进行解释并举例说明。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是白盒测试？什么是黑盒测试？两者的主要区别是什么？"><span class="nav-text">*什么是白盒测试？什么是黑盒测试？两者的主要区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件测试步骤"><span class="nav-text">软件测试步骤</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田丰</span>
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
